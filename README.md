@@ -2,7 +2,7 @@
 A fast and easy python virtual environment created for linux with some pre-installed libraries.
 
 ## Dependencies:
-Need to have the following installed (the installation commands are for Ubuntu / Debian):
+The following need to be installed (the installation commands are for Ubuntu / Debian):
 - python3:
   - sudo apt update && sudo apt upgrade
   - sudo apt install python3
