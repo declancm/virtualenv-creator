@@ -4,7 +4,7 @@ if [[ !("$(python3 -V)" =~ "Python 3") ]]
 then
     printf '\nPython 3 is not installed.\n\n'
 else
-    printf '\nEnter the directory where the python virtual environment should be installed:\n\n'
+    printf '\nEnter the directory path where the python virtual environment will be installed:\n\n'
     read directory
     printf '\nEnter the name of the python virtual environment:\n\n'
     read name
