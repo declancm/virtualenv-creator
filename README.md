@@ -15,4 +15,4 @@ Need to have the following installed (the installation commands are for Ubuntu /
 To run the script, the following command needs to be run from the script location:
 - source pyvenv.sh
 
-The script can be copied into the location where the python venv (or venvs) will be created so only '.' is required for the directory path input.
+The script can be copied into the location where the python venv (or venvs) will be created, so only '.' is required for the directory path input.
