@@ -9,3 +9,6 @@ Need to have the following installed (the installation commands are for Ubuntu /
   - sudo apt install python3-pip
 - python-venv:
   - python3 -m pip install --user virtualenv
+
+To run the script, the following command needs to be run from the script location:
+- source pyvenv.sh
