@@ -1,5 +1,5 @@
 # pythonvenv
-A fast and easy python virtual environment creator for linux with some basic libraries.
+A fast and easy python virtual environment created for linux with some basic libraries.
 
 Need to have the following installed (the installation commands are for Ubuntu / Debian):
 - python3:
