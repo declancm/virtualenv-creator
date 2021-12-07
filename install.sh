@@ -9,12 +9,9 @@ then
     if grep -qF "$aliasSource" ~/.bashrc;then
         printf "\nThe source link already exists.\n\n"
     else
-        printf "$aliasSource" >> ~/.bashrc
+        printf "\n$aliasSource\n" >> ~/.bashrc
         printf "\nThe alias was sourced successfully.\n\n"
     fi
-elif [ "$input" = "zsh" ] || [ "$input" = "Zsh" ]
-then
-    "\nThe alias was not added.\n\n"
 else
-    printf "\nYou did not enter a valid option. Neither were created.\n\n"
+    printf "\nThe alias was not added.\n\n"
 fi
