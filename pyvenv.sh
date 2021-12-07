@@ -10,16 +10,19 @@ else
     read name
     if [ ! -d "$directory/$name" ]
     then
+        printf '\nThe python virtual environment is being created...\n\n'
         python3 -m venv $directory/$name
         if [ $? -eq 0 ]
         then
-            printf '\nThe python virtual environment is being created...\n\n'
-            source ./pythonvenv/bin/activate
-            pip3 install pandas
-            pip3 install matplotlib
-            pip3 install sklearn
-            pip3 install requests
-            deactivate
+            printf '\nWould you like to install pandas, matplotlib and sklearn? (y/n)\n\n'
+            read libraries
+            if [ '$libraries' = 'y' ] || [ '$libraries' = 'Y' ]
+            then
+                source ./pythonvenv/bin/activate
+                pip3 install pandas
+                pip3 install matplotlib
+                pip3 install sklearn
+                deactivate
             printf '\nThe python virtual environment was created.\n\n'
         else
             printf '\nThe python virtual environment could not be created.\nCheck that pip3 and virtualenv are installed.\n\n'
