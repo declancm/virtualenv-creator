@@ -1,24 +1,20 @@
-newAlias="alias pyvenv=\"source $HOME/pyvenv-creator/pyvenv.sh\""
 [ ! -d ~/pyvenv-creator ] && mkdir -p ~/pyvenv-creator && printf "\nThe pyvenv-creator directory was created.\n"
+aliasSource="source $HOME/pyvenv-creator/pyvenv.sh"
 cp -f ./pyvenv.sh ~/pyvenv-creator/pyvenv.sh
-printf "\nWould you like to install the alias for bash or zsh? "
+cp -f ./pyvenv-alias ~/pyvenv-creator/pyvenv-alias
+printf "\nWould you like to source the alias for bash? (y/n) "
 read input
-if [ "$input" = "bash" ] || [ "$input" = "Bash" ]
+if [ "$input" = "y" ] || [ "$input" = "Y" ] || [ "$input" = "yes" ] || [ "$input" = "Yes" ]
 then
-    if grep -qF "$newAlias" ~/.bashrc;then
-        printf "\nThe alias already exists.\n\n"
+    if grep -qF "$aliasSource" ~/.bashrc;then
+        printf "\nThe source link already exists.\n\n"
     else
-        printf "$newAlias" >> ~/.bashrc
-        printf "\nThe alias was added successfully.\n\n"
+        printf "$aliasSource" >> ~/.bashrc
+        printf "\nThe alias was sourced successfully.\n\n"
     fi
 elif [ "$input" = "zsh" ] || [ "$input" = "Zsh" ]
 then
-    if grep -qF "$newAlias" ~/.zshrc;then
-        printf "\nThe alias already exists.\n\n"
-    else
-        printf "$newAlias\n" >> ~/.zshrc
-        printf "\nThe alias was added successfully.\n\n"
-    fi
+    "\nThe alias was not added.\n\n"
 else
     printf "\nYou did not enter a valid option. Neither were created.\n\n"
 fi

@@ -1,0 +1,1 @@
+alias pyvenv="source $HOME/pyvenv-creator/pyvenv.sh"
