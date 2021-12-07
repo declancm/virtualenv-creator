@@ -1,5 +1,5 @@
 # python-venv-creator
-A fast and easy python virtual environment created for linux with some pre-installed libraries.
+A fast and easy python virtual environment created for linux with some optional pre-installed libraries.
 
 ## Dependencies:
 The following need to be installed (installation commands are for Ubuntu / Debian):
@@ -15,6 +15,6 @@ The following need to be installed (installation commands are for Ubuntu / Debia
 To run the script, the following command needs to be run:
 - source <path-to-pyvenv.sh>
 
-An alias can be added to ~/.bashrc (or zsh etc.) to run the script, such as the following:
+An alias can be added to ~/.bashrc (or ~/.zshrc etc.) to run the script, such as the following:
 - alias pyvenv='source ~/pyvenv.sh'
 
