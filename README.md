@@ -12,7 +12,9 @@ The following need to be installed (installation commands are for Ubuntu / Debia
   - python3 -m pip install --user virtualenv
 
 ## Instructions:
-To run the script, the following command needs to be run from the script location:
-- source pyvenv.sh
+To run the script, the following command needs to be run:
+- source <path-to-pyvenv.sh>
 
-The script can be copied into the location where the python venv (or venvs) will be created, so only '.' is required for the directory path input.
+An alias can be added to ~/.bashrc (or zsh etc.) to run the script, such as the following:
+- alias pyvenv='source ~/pyvenv.sh'
+
