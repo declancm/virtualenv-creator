@@ -1,3 +1,6 @@
+# Created by Declan Mullen
+# Git repository can be found at git://github.com/declancm/git-auto-commit
+
 #!/usr/bin/env bash
 
 if [[ !("$(python3 -V)" =~ "Python 3") ]]
