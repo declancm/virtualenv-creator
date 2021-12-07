@@ -17,13 +17,16 @@ then
         then
             printf '\nWould you like to install pandas, matplotlib and sklearn? (y/n)\n\n'
             read libraries
-            if [ '$libraries' = 'y' ] || [ '$libraries' = 'Y' ]
+            if [ '$libraries' = 'y' ] || [ '$libraries' = 'Y' ] || [ '$libraries' = 'yes' ] || [ '$libraries' = 'Yes' ]
             then
                 source ./pythonvenv/bin/activate
                 pip3 install pandas
                 pip3 install matplotlib
                 pip3 install sklearn
                 deactivate
+            elif [ '$libraries' != 'n' ] || [ '$libraries' != 'N' ] || [ '$libraries' != 'no' ] || [ '$libraries' != 'No' ]
+            then
+                printf "\nYou did not enter a valid answer. Libraries will not be installed.\n\n"
             fi
             printf '\nThe python virtual environment was created.\n\n'
         else

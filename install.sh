@@ -1,4 +1,4 @@
-newAlias="alias pyvenv=\"source ~/pyvenv-creator/pyvenv.sh\""
+newAlias="alias pyvenv=\"source $HOME/pyvenv-creator/pyvenv.sh\""
 [ ! -d ~/pyvenv-creator ] && mkdir -p ~/pyvenv-creator && printf "\nThe pyvenv-creator directory was created.\n"
 cp -f ./pyvenv.sh ~/pyvenv-creator/pyvenv.sh
 printf "\nWould you like to install the alias for bash or zsh? "
