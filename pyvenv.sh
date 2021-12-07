@@ -3,10 +3,8 @@
 
 #!/usr/bin/env bash
 
-if [[ !("$(python3 -V)" =~ "Python 3") ]]
+if [[ "$(python3 -V)" =~ "Python 3" ]]
 then
-    printf '\nPython 3 is not installed.\n\n'
-else
     printf '\nEnter the directory path where the python virtual environment will be installed:\n\n'
     read directory
     printf '\nEnter the name of the python virtual environment:\n\n'
@@ -34,4 +32,6 @@ else
     else
         printf '\nA folder already exists in that directory with that name.\n\n'
     fi
+else
+    printf '\nPython 3 is not installed.\n\n'
 fi

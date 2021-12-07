@@ -6,9 +6,10 @@ read input
 if [ "$input" = "bash" ] || [ "$input" = "Bash" ]
 then
     if grep -qF "$newAlias" ~/.bashrc;then
-        printf "\nThe alias already exists.\n"
+        printf "\nThe alias already exists.\n\n"
     else
         printf "$newAlias" >> ~/.bashrc
+        printf "\nThe alias was added successfully.\n\n"
     fi
 elif [ "$input" = "zsh" ] || [ "$input" = "Zsh" ]
 then
