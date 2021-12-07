@@ -23,6 +23,7 @@ else
                 pip3 install matplotlib
                 pip3 install sklearn
                 deactivate
+            fi
             printf '\nThe python virtual environment was created.\n\n'
         else
             printf '\nThe python virtual environment could not be created.\nCheck that pip3 and virtualenv are installed.\n\n'
