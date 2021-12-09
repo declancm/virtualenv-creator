@@ -13,10 +13,6 @@ The following need to be installed (installation commands are for Ubuntu / Debia
 
       sudo apt install python3-pip
 
-- python-venv:
-
-      python3 -m pip install --user virtualenv
-
 ## Quick Install (for Bash or Zsh):
 1. Clone the git repo:
 
