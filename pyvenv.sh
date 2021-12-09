@@ -30,9 +30,9 @@ then
             else
                 printf "You did not enter a valid answer. Libraries will not be installed.\n"
             fi
-            printf "\nThe python virtual environment was created.\n\n"
+            printf "\nThe python virtual environment was created.\nTo activate: source $name/bin/activate\n"
         else
-            printf "The python virtual environment could not be created.\nCheck that pip3 and virtualenv are installed.\n"
+            printf "\nThe python virtual environment could not be created. Check pip is installed.\n"
         fi
     else
         printf "A folder already exists in that directory with that name.\n"
