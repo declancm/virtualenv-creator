@@ -5,7 +5,6 @@ A fast and easy python virtual environment created for linux with some optional 
 The following need to be installed (installation commands are for Ubuntu / Debian):
 - python3:
       sudo apt update && sudo apt upgrade
-
       sudo apt install python3
 
 - pip3:
