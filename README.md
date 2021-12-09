@@ -4,18 +4,17 @@ A fast and easy python virtual environment created for linux with some optional 
 ## Dependencies:
 The following need to be installed (installation commands are for Ubuntu / Debian):
 - python3:
+      sudo apt update && sudo apt upgrade
 
-    sudo apt update && sudo apt upgrade
-
-    sudo apt install python3
+      sudo apt install python3
 
 - pip3:
 
-    sudo apt install python3-pip
+      sudo apt install python3-pip
 
 - python-venv:
 
-    python3 -m pip install --user virtualenv
+      python3 -m pip install --user virtualenv
 
 ## Quick Install (for Bash or Zsh):
 1. Clone the git repo:
