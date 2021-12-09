@@ -1,5 +1,5 @@
 # python-venv-creator
-A fast and easy python virtual environment created for linux with some optional pre-installed libraries.
+A fast and easy python virtual environment creator for **bash** with some optional pre-installed libraries.
 
 ## Dependencies:
 The following need to be installed (installation commands are for Ubuntu / Debian):
@@ -13,12 +13,12 @@ The following need to be installed (installation commands are for Ubuntu / Debia
 
       sudo apt install python3-pip
 
-## Quick Install (for Bash or Zsh):
+## Quick Installation:
 1. Clone the git repo:
 
        git clone https://github.com/declancm/python-venv-creator.git ~/python-venv-creator
 
-3. Run the installation script to add the alias to your bashrc:
+2. Run the installation script if you wish to add the alias to your bashrc:
 
        . ~/python-venv-creator/install.sh
 
