@@ -15,14 +15,14 @@ then
         python3 -m venv $directory/$name
         if [ $? -eq 0 ]
         then
-            printf "Would you like to install pandas, matplotlib and sklearn? (y/n) "
+            printf "Would you like to install pandas and matplotlib? (y/n) "
             read libraries
             if [ "$libraries" = "y" ] || [ "$libraries" = "Y" ] || [ "$libraries" = "yes" ] || [ "$libraries" = "Yes" ]
             then
                 source ./pythonvenv/bin/activate
                 pip3 install pandas
                 pip3 install matplotlib
-                pip3 install sklearn
+                #pip3 install sklearn
                 deactivate
             elif [ "$libraries" != "n" ] || [ "$libraries" != "N" ] || [ "$libraries" != "no" ] || [ "$libraries" != "No" ]
             then
