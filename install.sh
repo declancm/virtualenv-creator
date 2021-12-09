@@ -1,8 +1,4 @@
-[ ! -d ~/pyvenv-creator ] && mkdir -p ~/pyvenv-creator && printf "The pyvenv-creator directory was created.\n"
-aliasSource="source $HOME/pyvenv-creator/pyvenv.sh"
-cp -f ./pyvenv.sh ~/pyvenv-creator/pyvenv.sh
-[ -d ~/pyvenv-creator/pyvenv-alias ] && rm -f ~/pyvenv-creator/pyvenv-alias
-printf "alias pyvenv=\"source $HOME/pyvenv-creator/pyvenv.sh\"" >> ~/pyvenv-creator/pyvenv-alias
+aliasSource="source $HOME/python-venv-creator/pyvenv.sh"
 printf "Would you like to source the alias for bash? (y/n) "
 read input
 if [ "$input" = "y" ] || [ "$input" = "Y" ] || [ "$input" = "yes" ] || [ "$input" = "Yes" ]

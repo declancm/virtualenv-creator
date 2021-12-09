@@ -5,7 +5,7 @@
 
 if [[ "$(python3 -V)" =~ "Python 3" ]]
 then
-    printf "\nEnter the directory path where the python virtual environment will be installed: "
+    printf "Enter the directory path where the python virtual environment will be installed: "
     read directory
     printf "Enter the name of the python virtual environment: "
     read name
