@@ -43,13 +43,13 @@ To manually install:
 
 ### PowerShell (Windows):
 
-Ensure powershell has the permission to run scripts. This will also allow for the profile script to be run for powershell to allow aliases.
+- Ensure powershell has the permission to run scripts. This will also allow for the profile script to be run for powershell to allow aliases.
 
-To run the powershell script, the following command needs to be run:
+- To run the powershell script, the following command needs to be run:
 
-    . ~\Documents\virtualenv-creator\pyvenv.ps1
+      . ~\Documents\virtualenv-creator\pyvenv.ps1
 
-An alias can be added to ~\Documents\profile.ps1 (if the file doesn't exist, create it) to run the script, such as the following:
+- An alias can be added to ~\Documents\profile.ps1 (if the file doesn't exist, create it) to run the script, such as the following:
 
-    Set-Alias pyvenv . ~\Documents\virtualenv-creator\pyvenv.ps1
+      Set-Alias pyvenv . ~\Documents\virtualenv-creator\pyvenv.ps1
 
