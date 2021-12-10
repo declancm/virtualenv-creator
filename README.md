@@ -8,7 +8,7 @@ A fast and easy python virtual environment creator for **linux, mac and windows*
 
 ## Installation
 
-### BASH - Linux and Mac:
+### BASH (Linux and Mac):
 
 1. Clone the git repo:
 
@@ -18,7 +18,7 @@ A fast and easy python virtual environment creator for **linux, mac and windows*
 
        . ~/python-venv-creator/install.sh
 
-### PowerShell - Windows:
+### PowerShell (Windows):
 
 1. Clone the git repo:
 
@@ -26,7 +26,7 @@ A fast and easy python virtual environment creator for **linux, mac and windows*
 
 ## Instructions
 
-### BASH - Linux and Mac:
+### BASH (Linux and Mac):
 
 **If the install.sh was used, just type 'pyvenv' into the terminal to run the script and create a python venv.**
 
@@ -40,7 +40,7 @@ To manually install:
 
       alias pyvenv='source ~/python-venv-creator/pyvenv.sh'
 
-### PowerShell - Windows:
+### PowerShell (Windows):
 
 Ensure powershell has the permission to run scripts. This will also allow for the profile script to be run for powershell to allow aliases.
 
