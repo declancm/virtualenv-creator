@@ -23,10 +23,23 @@ then
         if [ "$libraries" = "y" ] || [ "$libraries" = "Y" ] || [ "$libraries" = "yes" ] || [ "$libraries" = "Yes" ]
         then
             source $directory\/$name/bin/activate
-            pip3 install pandas
-            pip3 install matplotlib
-            #pip3 install sklearn
-            deactivate
+            if [ $? -eq 0 ]
+            then
+                if [ "${line:0:1}" == "3" ]
+                then
+                    pip3 install pandas
+                    pip3 install matplotlib
+                    #pip3 install sklearn
+                elif [ "${line:0:1}" == "2" ]
+                then
+                    pip2 install pandas
+                    pip2 install matplotlib
+                    #pip2 install sklearn
+                fi
+                deactivate
+            else
+                printf "The python virtualenv could not be activated."
+            fi
         elif [ "$libraries" = "n" ] || [ "$libraries" = "N" ] || [ "$libraries" = "no" ] || [ "$libraries" = "No" ]
         then
             printf "Libraries will not be installed.\n"
