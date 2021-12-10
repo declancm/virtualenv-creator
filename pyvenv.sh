@@ -21,14 +21,11 @@ then
             read libraries
             if [ "$libraries" = "y" ] || [ "$libraries" = "Y" ] || [ "$libraries" = "yes" ] || [ "$libraries" = "Yes" ]
             then
-                currentDirectory=$(pwd)
-                cd $directory
-                source $name/bin/activate
+                source $directory\/$name/bin/activate
                 pip3 install pandas
                 pip3 install matplotlib
                 #pip3 install sklearn
                 deactivate
-                cd currentDirectory
             elif [ "$libraries" != "n" ] || [ "$libraries" != "N" ] || [ "$libraries" != "no" ] || [ "$libraries" != "No" ]
             then
                 printf "Libraries will not be installed.\n"
@@ -43,10 +40,10 @@ then
             elif [ "$activate" != "n" ] || [ "$activate" != "N" ] || [ "$activate" != "no" ] || [ "$activate" != "No" ]
             then
                 printf "The python venv will not be activated.\n"
-                printf "To activate: source $directory/$name/bin/activate\n\n"
+                printf "To activate: source $directory/$name/bin/activate\n"
             else
                 printf "You did not enter a valid answer. The python venv will not be activated.\n"
-                printf "To activate: source $directory/$name/bin/activate\n\n"
+                printf "To activate: source $directory/$name/bin/activate\n"
             fi
             printf "\nThe python venv creation is complete.\n\n"
         else
