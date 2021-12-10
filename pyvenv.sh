@@ -5,7 +5,7 @@
 
 if [[ "$(python3 -V)" =~ "Python 3" ]]
 then
-    printf "Enter the directory path where the python virtual environment will be installed: "
+    printf "\nEnter the directory path where the python virtual environment will be installed: "
     read directory
     printf "Enter the name of the python virtual environment: "
     read name
@@ -20,7 +20,7 @@ then
             if [ "$libraries" = "y" ] || [ "$libraries" = "Y" ] || [ "$libraries" = "yes" ] || [ "$libraries" = "Yes" ]
             then
                 # source $directory/$name/bin/activate
-                source $name/bin/activate
+                source $directory\/$name/bin/activate
                 pip3 install pandas
                 pip3 install matplotlib
                 #pip3 install sklearn
@@ -31,9 +31,22 @@ then
             else
                 printf "You did not enter a valid answer. Libraries will not be installed.\n"
             fi
-            printf "\nThe python virtual environment was created.\nTo activate: source $name/bin/activate\n"
+            printf "\nDo you want to activate the python venv? (y/n) "
+            read activate
+            if [ "$activate" = "y" ] || [ "$activate" = "Y" ] || [ "$activate" = "yes" ] || [ "$activate" = "Yes" ]
+            then
+                source $directory\/$name/bin/activate
+            elif [ "$activate" != "n" ] || [ "$activate" != "N" ] || [ "$activate" != "no" ] || [ "$activate" != "No" ]
+            then
+                printf "The python venv will not be activated.\n"
+                printf "To activate: source $directory/$name/bin/activate\n\n"
+            else
+                printf "You did not enter a valid answer. The python venv will not be activated.\n"
+                printf "To activate: source $directory/$name/bin/activate\n\n"
+            fi
+            printf "\nThe python venv creation is complete.\n\n"
         else
-            printf "\nThe python virtual environment could not be created. Check pip is installed.\n"
+            printf "\nThe python virtual environment could not be created.\n"
         fi
     else
         printf "A folder already exists in that directory with that name.\n"
