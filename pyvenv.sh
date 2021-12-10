@@ -19,7 +19,8 @@ then
             read libraries
             if [ "$libraries" = "y" ] || [ "$libraries" = "Y" ] || [ "$libraries" = "yes" ] || [ "$libraries" = "Yes" ]
             then
-                source ./pythonvenv/bin/activate
+                # source $directory/$name/bin/activate
+                source $name/bin/activate
                 pip3 install pandas
                 pip3 install matplotlib
                 #pip3 install sklearn

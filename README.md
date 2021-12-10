@@ -33,5 +33,8 @@ An alias can be added to ~/.bashrc (or ~/.zshrc etc.) to run the script, such as
 
     alias pyvenv='source ~/python-venv-creator/pyvenv.sh'
 
+Windows:
+powershell -ExecutionPolicy Bypass -File pyvenv.ps1
+
 ## Instructions:
 If installed using the quick install method, 'pyvenv' is the terminal command to run the script. Then follow the commands to install your virtual environment.
