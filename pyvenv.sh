@@ -1,11 +1,11 @@
 # Created by Declan Mullen
-# Git repository can be found at git://github.com/declancm/git-auto-commit
+# Git repository can be found at git://github.com/declancm/virtualenv-creator
 
 #!/usr/bin/env bash
-printf "Enter the directory path where the python virtual environment will be installed: "
+printf "Enter the directory path where the python virtualenv will be installed: "
 read directory
 directory="${directory/#\~/$HOME}"
-printf "Enter the name of the python virtual environment: "
+printf "Enter the name of the python virtualenv: "
 read name
 if [ ! -d "$directory/$name" ]
 then
@@ -14,7 +14,7 @@ then
     printf "\nEnter the version of python you would like to use (eg. 3.9): "
     read version
     mkdir -p $directory
-    printf "\nThe python virtual environment is being created...\n\n"
+    printf "\nThe python virtualenv is being created...\n\n"
     virtualenv --python python$version $directory/$name >/dev/null
     if [ $? -eq 0 ]
     then
@@ -40,15 +40,15 @@ then
             source $directory\/$name/bin/activate
         elif [ "$activate" = "n" ] || [ "$activate" = "N" ] || [ "$activate" = "no" ] || [ "$activate" = "No" ]
         then
-            printf "The python venv will not be activated.\n"
+            printf "The python virtualenv will not be activated.\n"
             printf "To activate: source $directory/$name/bin/activate\n"
         else
-            printf "You did not enter a valid answer. The python venv will not be activated.\n"
+            printf "You did not enter a valid answer. The python virtualenv will not be activated.\n"
             printf "To activate: source $directory/$name/bin/activate\n"
         fi
-        printf "\nThe python venv is created.\n\n"
+        printf "\nThe python virtualenv is created.\n\n"
     else
-        printf "\nThe python virtual environment could not be created.\n"
+        printf "\nThe python virtualenv could not be created.\n"
     fi
     # cd -
 else

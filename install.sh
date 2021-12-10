@@ -1,4 +1,4 @@
-aliasSource="source $HOME/python-venv-creator/pyvenv.sh"
+aliasSource="source $HOME/virtualenv-creator/pyvenv.sh"
 printf "Would you like to source the alias for bash? (y/n) "
 read input
 if [ "$input" = "y" ] || [ "$input" = "Y" ] || [ "$input" = "yes" ] || [ "$input" = "Yes" ]
