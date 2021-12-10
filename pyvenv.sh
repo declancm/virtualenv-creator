@@ -7,10 +7,12 @@ if [[ "$(python3 -V)" =~ "Python 3" ]]
 then
     printf "\nEnter the directory path where the python virtual environment will be installed: "
     read directory
+    directory="${directory/#\~/$HOME}"
     printf "Enter the name of the python virtual environment: "
     read name
     if [ ! -d "$directory/$name" ]
     then
+        mkdir -p $directory
         printf "\nThe python virtual environment is being created...\n\n"
         python3 -m venv $directory/$name
         if [ $? -eq 0 ]
@@ -19,12 +21,13 @@ then
             read libraries
             if [ "$libraries" = "y" ] || [ "$libraries" = "Y" ] || [ "$libraries" = "yes" ] || [ "$libraries" = "Yes" ]
             then
-                # source $directory/$name/bin/activate
-                source $directory\/$name/bin/activate
+                cd $directory
+                source $name/bin/activate
                 pip3 install pandas
                 pip3 install matplotlib
                 #pip3 install sklearn
                 deactivate
+                cd -
             elif [ "$libraries" != "n" ] || [ "$libraries" != "N" ] || [ "$libraries" != "no" ] || [ "$libraries" != "No" ]
             then
                 printf "Libraries will not be installed.\n"
@@ -35,7 +38,7 @@ then
             read activate
             if [ "$activate" = "y" ] || [ "$activate" = "Y" ] || [ "$activate" = "yes" ] || [ "$activate" = "Yes" ]
             then
-                source $directory\/$name/bin/activate
+                source $name/bin/activate
             elif [ "$activate" != "n" ] || [ "$activate" != "N" ] || [ "$activate" != "no" ] || [ "$activate" != "No" ]
             then
                 printf "The python venv will not be activated.\n"
@@ -48,6 +51,7 @@ then
         else
             printf "\nThe python virtual environment could not be created.\n"
         fi
+        # cd -
     else
         printf "A folder already exists in that directory with that name.\n"
     fi
