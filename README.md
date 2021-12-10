@@ -18,7 +18,7 @@ A fast and easy python virtual environment creator for **linux, mac and windows*
 
        . ~/python-venv-creator/install.sh
 
-### PowerShell - Windows:
+### PowerShell (Windows):
 
 1. Clone the git repo:
 
