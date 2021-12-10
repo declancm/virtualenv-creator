@@ -18,7 +18,7 @@ The following need to be installed (installation commands are for Ubuntu / Debia
 
        git clone https://github.com/declancm/python-venv-creator.git ~/python-venv-creator
 
-2. Run the installation script if you wish to add the alias to your bashrc:
+2. Run the installation script if you wish to add the alias to your bashrc (for linux, mac and wsl):
 
        . ~/python-venv-creator/install.sh
 
