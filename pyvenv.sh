@@ -1,5 +1,5 @@
 # Created by Declan Mullen
-# Git repository can be found at git://github.com/declancm/git-auto-commit
+# Git repository can be found at git://github.com/declancm/python-venv-creator
 
 #!/usr/bin/env bash
 

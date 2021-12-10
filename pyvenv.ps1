@@ -1,3 +1,6 @@
+# Created by Declan Mullen
+# Git repository can be found at git://github.com/declancm/python-venv-creator
+
 $directoryString = Read-Host -Prompt "`nEnter the directory path where the python virtual environment will be installed"
 $directory = Get-Item $directoryString
 $name = Read-Host -Prompt "Enter the name of the python virtual environment"
