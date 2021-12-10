@@ -14,11 +14,11 @@ A fast and easy python virtual environment creator for **linux, mac and windows*
 
        git clone https://github.com/declancm/python-venv-creator.git ~/python-venv-creator
 
-2. Run the installation script if you wish to add the alias to your bashrc:
+2. Run the installation script if you wish to add the alias to your .bashrc:
 
        . ~/python-venv-creator/install.sh
 
-### PowerShell (Windows):
+### PowerShell - Windows:
 
 1. Clone the git repo:
 
@@ -34,7 +34,7 @@ To manually install:
 
 - To run the bash script, the following command needs to be run:
 
-      source <path-to-directory>/pyvenv.sh
+      source ~/python-venv-creator/pyvenv.sh
 
 - An alias can be added to ~/.bashrc (if the file doesn't exist, create it) to run the script, such as the following:
 
