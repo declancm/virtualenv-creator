@@ -2,8 +2,13 @@
 A fast and easy python virtual environment creator for **linux, mac and windows** that:
 
 - allows for python version selection after showing which versions are currently installed,
-- fast library selection,
+- fast library installation,
 - and automatic virtualenv activation.
+
+### Demo Video:
+
+https://user-images.githubusercontent.com/90937622/145638921-d26da6b2-b47f-45c7-beae-f397c4946b20.mp4
+
 
 ## Dependencies
 
