@@ -3,8 +3,8 @@ A fast and easy python virtual environment creator for **linux, mac and windows*
 
 ## Dependencies
 
-- python3
-- pip3
+- python/python3
+- pip/pip3
 - virtualenv
 
 ## Installation
@@ -49,7 +49,7 @@ To manually install:
 
       . ~\Documents\virtualenv-creator\pyvenv.ps1
 
-- An alias can be added to ~\Documents\profile.ps1 (if the file doesn't exist, create it) to run the script, such as the following:
+- An alias can be added to ~\Documents\profile.ps1 (if the file doesn't exist, create it) to run the script:
 
       Set-Alias pyvenv . ~\Documents\virtualenv-creator\pyvenv.ps1
 
