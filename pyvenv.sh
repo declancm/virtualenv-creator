@@ -36,7 +36,7 @@ then
             read activate
             if [ "$activate" = "y" ] || [ "$activate" = "Y" ] || [ "$activate" = "yes" ] || [ "$activate" = "Yes" ]
             then
-                source $name/bin/activate
+                source $directory\/$name/bin/activate
             elif [ "$activate" != "n" ] || [ "$activate" != "N" ] || [ "$activate" != "no" ] || [ "$activate" != "No" ]
             then
                 printf "The python venv will not be activated.\n"
