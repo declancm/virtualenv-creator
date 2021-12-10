@@ -46,7 +46,7 @@ To manually install:
 
       source ~/virtualenv-creator/pyvenv.sh
 
-- An alias can be added to ~/.bashrc (if the file doesn't exist, create it) to run the script, such as the following:
+- This alias can be added to ~/.bashrc (if the file doesn't exist, create it) to run the script:
 
       alias pyvenv='source ~/virtualenv-creator/pyvenv.sh'
 
@@ -58,7 +58,7 @@ To manually install:
 
       . ~\Documents\virtualenv-creator\pyvenv.ps1
 
-- An alias can be added to ~\Documents\profile.ps1 (if the file doesn't exist, create it) to run the script:
+- This alias can be added to ~\Documents\profile.ps1 (if the file doesn't exist, create it) to run the script:
 
       Set-Alias pyvenv . ~\Documents\virtualenv-creator\pyvenv.ps1
 
