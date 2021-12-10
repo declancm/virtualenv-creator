@@ -2,16 +2,9 @@
 A fast and easy python virtual environment creator for **linux, mac and windows** with some optional pre-installed python libraries.
 
 ## Dependencies
-The following need to be installed (installation commands are for Ubuntu / Debian):
-- python3:
 
-      sudo apt update && sudo apt upgrade
-
-      sudo apt install python3
-
-- pip3:
-
-      sudo apt install python3-pip
+- python3
+- pip3
 
 ## Installation
 
@@ -35,7 +28,7 @@ The following need to be installed (installation commands are for Ubuntu / Debia
 
 ### BASH - Linux and Mac:
 
-**If the install.sh was used, just type 'pyvenv' into the terminal to create a python venv.**
+**If the install.sh was used, just type 'pyvenv' into the terminal to run the script and create a python venv.**
 
 To manually install:
 
@@ -43,7 +36,7 @@ To manually install:
 
       source <path-to-directory>/pyvenv.sh
 
-- An alias can be added to ~/.bashrc (if the file doesn't exist, make it) to run the script, such as the following:
+- An alias can be added to ~/.bashrc (if the file doesn't exist, create it) to run the script, such as the following:
 
       alias pyvenv='source ~/python-venv-creator/pyvenv.sh'
 
@@ -55,8 +48,7 @@ To run the powershell script, the following command needs to be run:
 
     . ~\Documents\python-venv-creator\pyvenv.ps1
 
-An alias can be added to ~\Documents\profile.ps1 (if the file doesn't exist, make it) to run the script, such as the following:
+An alias can be added to ~\Documents\profile.ps1 (if the file doesn't exist, create it) to run the script, such as the following:
 
     Set-Alias pyvenv . ~\Documents\python-venv-creator\pyvenv.ps1
 
-powershell -ExecutionPolicy Bypass -File pyvenv.ps1
