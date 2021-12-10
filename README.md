@@ -1,10 +1,11 @@
 # python-venv-creator
-A fast and easy python virtual environment creator for **linux, mac and windows** with some optional pre-installed python libraries.
+A fast and easy python virtual environment creator for **linux, mac and windows** that allows for python version selection.
 
 ## Dependencies
 
 - python3
 - pip3
+- virtualenv
 
 ## Installation
 
