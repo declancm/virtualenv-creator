@@ -26,7 +26,7 @@ then
                 pip3 install matplotlib
                 #pip3 install sklearn
                 deactivate
-            elif [ "$libraries" != "n" ] || [ "$libraries" != "N" ] || [ "$libraries" != "no" ] || [ "$libraries" != "No" ]
+            elif [ "$libraries" = "n" ] || [ "$libraries" = "N" ] || [ "$libraries" = "no" ] || [ "$libraries" = "No" ]
             then
                 printf "Libraries will not be installed.\n"
             else
@@ -37,7 +37,7 @@ then
             if [ "$activate" = "y" ] || [ "$activate" = "Y" ] || [ "$activate" = "yes" ] || [ "$activate" = "Yes" ]
             then
                 source $directory\/$name/bin/activate
-            elif [ "$activate" != "n" ] || [ "$activate" != "N" ] || [ "$activate" != "no" ] || [ "$activate" != "No" ]
+            elif [ "$activate" = "n" ] || [ "$activate" = "N" ] || [ "$activate" = "no" ] || [ "$activate" = "No" ]
             then
                 printf "The python venv will not be activated.\n"
                 printf "To activate: source $directory/$name/bin/activate\n"
