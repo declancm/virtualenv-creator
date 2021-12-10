@@ -21,13 +21,14 @@ then
             read libraries
             if [ "$libraries" = "y" ] || [ "$libraries" = "Y" ] || [ "$libraries" = "yes" ] || [ "$libraries" = "Yes" ]
             then
+                currentDirectory=$(pwd)
                 cd $directory
                 source $name/bin/activate
                 pip3 install pandas
                 pip3 install matplotlib
                 #pip3 install sklearn
                 deactivate
-                cd -
+                cd currentDirectory
             elif [ "$libraries" != "n" ] || [ "$libraries" != "N" ] || [ "$libraries" != "no" ] || [ "$libraries" != "No" ]
             then
                 printf "Libraries will not be installed.\n"
