@@ -22,7 +22,7 @@ else
     then
         while :
         do
-            printf "Enter the name of a library you would like to install (select enter to skip) : "
+            printf "Enter the name of a library you would like to install (press Enter to skip) : "
             read libraries
             if [ "$libraries" != "" ]
             then
