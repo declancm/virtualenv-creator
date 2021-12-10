@@ -25,12 +25,12 @@ then
             source $directory\/$name/bin/activate
             if [ $? -eq 0 ]
             then
-                if [ "${line:0:1}" == "3" ]
+                if [ "${version:0:1}" == "3" ]
                 then
                     pip3 install pandas
                     pip3 install matplotlib
                     #pip3 install sklearn
-                elif [ "${line:0:1}" == "2" ]
+                elif [ "${version:0:1}" == "2" ]
                 then
                     pip2 install pandas
                     pip2 install matplotlib
