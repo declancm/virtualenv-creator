@@ -19,7 +19,7 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
   }
   $version = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use"
   $python = $where[$version]
-  "`nThe python virtual environment is being created..."
+  # "`nThe python virtual environment is being created..."
   Invoke-Expression "virtualenv --python $python $directory\$name | Out-Null"
   if($?) {
     while($true) {
@@ -42,7 +42,7 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
     else {
       "You did not enter a valid answer. The python venv will not be activated."
     }
-    "`nThe python virtualenv creation is complete.`n`nTo activate the python virtualenv: $directory\$name\Scripts\activate.ps1`n"
+    "`nThe python virtualenv creation is complete.`n`nTo manually activate the python virtualenv: $directory\$name\Scripts\activate.ps1`n"
   } else {
     "`nThe python virtual environment could not be created.`n"
   }
