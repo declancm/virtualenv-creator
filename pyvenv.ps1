@@ -1,3 +1,6 @@
+# Created by Declan Mullen
+# This repository can be found at: https://github.com/declancm/virtualenv-creator
+
 $directoryString = Read-Host -Prompt "`nEnter the directory path where the python virtual environment will be installed"
 if(Test-Path $directoryString) {
   $directory = Get-Item $directoryString
@@ -19,7 +22,7 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
   }
   $version = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use"
   $python = $where[$version]
-  # "`nThe python virtual environment is being created..."
+  "`nThe python virtual environment is being created..."
   Invoke-Expression "virtualenv --python $python $directory\$name | Out-Null"
   if($?) {
     while($true) {
