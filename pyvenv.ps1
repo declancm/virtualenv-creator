@@ -1,5 +1,5 @@
 # Created by Declan Mullen
-# This repository can be found at: https://github.com/declancm/virtualenv-creator
+# Git repository can be found at https://github.com/declancm/virtualenv-creator
 
 $directoryString = Read-Host -Prompt "`nEnter the directory path where the python virtual environment will be installed"
 if(Test-Path $directoryString) {
