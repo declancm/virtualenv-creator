@@ -1,5 +1,10 @@
 $directoryString = Read-Host -Prompt "`nEnter the directory path where the python virtual environment will be installed"
-$directory = Get-Item $directoryString
+if(Test-Path $directoryString) {
+  $directory = Get-Item $directoryString
+} else {
+  New-Item $directoryString -ItemType Directory | Out-Null
+  $directory = Get-Item $directoryString
+}
 $name = Read-Host -Prompt "Enter the name of the python virtual environment"
 if(Test-Path -Path "$directory\$name" -PathType Container) {
   "A folder already exists in that directory with that name.`n"
@@ -14,8 +19,8 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
   }
   $version = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use"
   $python = $where[$version]
-  "`nThe python virtual environment is being created...`n"
-  Invoke-Expression "virtualenv --python $python $directory\$name"
+  "`nThe python virtual environment is being created..."
+  Invoke-Expression "virtualenv --python $python $directory\$name | Out-Null"
   if($?) {
     while($true) {
       $libraries = Read-Host -Prompt "`nEnter the name of a library you would like to install (press Enter to skip)"
