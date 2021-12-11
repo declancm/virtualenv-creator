@@ -53,7 +53,8 @@ To manually install:
 
       . ~\Documents\virtualenv-creator\pyvenv.ps1
 
-- This alias can be added to ~\Documents\profile.ps1 (if the file doesn't exist, create it) to run the script:
+- This alias can be added to ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 (if the file doesn't exist, create it) to run the script:
 
-      Set-Alias pyvenv . ~\Documents\virtualenv-creator\pyvenv.ps1
+      function runPyvenv { Invoke-Expression ". ~\Documents\virtualenv-creator\pyvenv.ps1" }
+      Set-Alias pyvenv runPyvenv
 
