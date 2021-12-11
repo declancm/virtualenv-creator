@@ -5,14 +5,6 @@ A fast and easy python virtual environment creator for **linux, mac and windows*
 - fast library installation,
 - and automatic virtualenv activation.
 
-### BASH Demo Video:
-
-https://user-images.githubusercontent.com/90937622/145638921-d26da6b2-b47f-45c7-beae-f397c4946b20.mp4
-
-### PowerShell Demo Video:
-
-
-
 ## Dependencies
 
 - python/python3
