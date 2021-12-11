@@ -1,7 +1,7 @@
 # virtualenv-creator
 A fast and easy python virtual environment creator for **linux, mac and windows** that:
 
-- allows for python version selection after showing which versions are currently installed,
+- allows for python version selection after displaying currently installed versions,
 - fast library installation,
 - and automatic virtualenv activation.
 
