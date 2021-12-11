@@ -7,7 +7,7 @@ A fast and easy python virtual environment creator for **linux, mac and windows*
 
 PowerShell Demo Video:
 
-https://user-images.githubusercontent.com/90937622/145665763-9eefb4c7-1e4b-4f26-a6c1-a46253a74af0.mp4
+https://user-images.githubusercontent.com/90937622/145666215-8e32b020-b78e-433e-9fca-6258b0c0dbc0.mp4
 
 
 ## Dependencies
