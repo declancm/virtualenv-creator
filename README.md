@@ -42,9 +42,11 @@ https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-
 
 ### BASH (Linux and Mac):
 
-**If the install.sh was used, just type 'pyvenv' into bash to run the script and create a python virtualenv.**
+**If install.sh script was run:**
 
-To manually install:
+- Type 'pyvenv' into bash to run the script and create a python virtualenv.
+
+**To manually run the script:**
 
 - To run the bash script, the following command needs to be run:
 
@@ -56,17 +58,19 @@ To manually install:
 
 ### PowerShell (Windows):
 
-- Ensure powershell has the permission to run scripts. This will also allow for the profile script to be run for powershell to allow aliases.
+Note: Ensure powershell has the permission to run scripts. This will also allow for the profile script to be run for powershell to allow aliases.
 
-**If the install.ps1 was used, just type 'pyvenv' into PowerShell to run the script and create a python virtualenv.**
+**If install.ps1 script was run:**
 
-To manually install:
+- Type 'pyvenv' into PowerShell to run the script and create a python virtualenv.
 
-- To run the powershell script, the following command needs to be run:
+**To manually run the script:**
+
+- Enter the following command into PowerShell:
 
       . ~\Documents\virtualenv-creator\pyvenv.ps1
 
-- This alias can be added to the location output by 'echo $profile' (if the file doesn't exist, create it) to run the script:
+- An alias can be added to the location output by 'echo $profile' (if the file doesn't exist, create it) to run the script with 'pyvenv':
 
       function runPyvenv { Invoke-Expression ". ~\Documents\virtualenv-creator\pyvenv.ps1" }
       Set-Alias pyvenv runPyvenv
