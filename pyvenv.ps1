@@ -15,8 +15,8 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
   $where = where.exe Python
   $number = 0
   "`nThe installed python.exe versions:`n"
-  while ( $where[$number] ) {
-    $current = $where[$number]
+  while ( $where[][$number] ) {
+    $current = $where[][$number]
     "    $number.   $current"
     $number = $number + 1
   }
