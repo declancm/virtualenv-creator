@@ -54,7 +54,7 @@ https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-
 
       source ~/virtualenv-creator/pyvenv.sh
       
-      PowerShell.exe -File -ExecutionPolicy Bypass ~\Documents\virtualenv-creator\pyvenv.ps1
+      PowerShell.exe -ExecutionPolicy Bypass -File ~\Documents\virtualenv-creator\pyvenv.ps1
 
 - This alias can be added to ~/.bashrc (if the file doesn't exist, create it), to run the script with the command 'pyvenv':
 
