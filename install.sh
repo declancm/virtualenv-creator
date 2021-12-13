@@ -1,3 +1,4 @@
+#!/bin/bash
 aliasSource="alias pyvenv=\"source $HOME/virtualenv-creator/pyvenv.sh\""
 printf "Would you like to source the alias for bash? (y/n) "
 read input
