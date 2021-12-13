@@ -12,16 +12,24 @@ $name = Read-Host -Prompt "Enter the name of the python virtual environment"
 if(Test-Path -Path "$directory\$name" -PathType Container) {
   "A folder already exists in that directory with that name.`n"
 } else {
+  # $where = Get-ChildItem -recursive -include "Python.exe"
   $where = where.exe Python
+  $type = $where.GetType()
+  "The type is: $type"
   $number = 0
   "`nThe installed python.exe versions:`n"
-  while ( $where[][$number] ) {
-    $current = $where[][$number]
+  while (($where[$number]) -and ($where[$number] -gt 1) ) {
+    $current = $where[$number]
     "    $number.   $current"
     $number = $number + 1
   }
+  if ($where[$number] -eq 1) { "    0.   $where`nOnly one version of python is installed." }
   $version = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use"
-  $python = $where[$version]
+  if ($where[$version] -eq 'C') {
+    $python = $where
+  } else {
+    $python = $where[$version]
+  }
   "`nThe python virtual environment is being created..."
   Invoke-Expression "virtualenv --python $python $directory\$name | Out-Null"
   if($?) {
