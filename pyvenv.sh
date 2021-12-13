@@ -1,7 +1,7 @@
 # Created by Declan Mullen
 # Git repository can be found at git://github.com/declancm/virtualenv-creator
 
-#!/usr/bin/env bash
+#!/bin/bash
 printf "Enter the directory path where the python virtualenv will be installed: "
 read directory
 directory="${directory/#\~/$HOME}"
