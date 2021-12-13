@@ -23,9 +23,9 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
     "    $number.   $current"
     $number = $number + 1
   }
-  if ($where[$number] -eq 1) { "    0.   $where`nOnly one version of python is installed." }
+  if ($where[$number] -eq 1) { "    0.   $where`n`nOnly one version of python is installed." }
   $version = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use"
-  if ($where[$version] -eq 'C') {
+  if ($where[$version] -eq 1) {
     $python = $where
   } else {
     $python = $where[$version]
