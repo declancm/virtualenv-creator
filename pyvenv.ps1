@@ -47,8 +47,10 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
     if ($gitignore -eq 'y' -or $gitignore -eq 'yes') {
       New-Item -Path $directory\$name -Name .gitignore -Type "file" -Value "*" | Out-Null -and "A .gitignore file was created inside $name."
     } elseif ($gitignore -eq 'n' -or $gitignore -eq 'no') {
+      Remove-Item -Path $directory\$name\.gitignore -Force -Confirm | Out-Null
       "The python virtualenv will not be ignored by git."
     } else {
+      Remove-Item -Path $directory\$name\.gitignore -Force -Confirm | Out-Null
       "You did not enter a valid answer. The python virtualenv will not be ignored by git."
     }
     $activate = Read-Host -Prompt "`nDo you want to activate the python venv? (y/n) "
