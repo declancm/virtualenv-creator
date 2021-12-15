@@ -70,9 +70,9 @@ _Note: Ensure powershell has the permission to run scripts so it can run it's ow
 
 - Enter the following command into PowerShell:
       
-      PowerShell /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1
+      PowerShell.exe /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1
 
 - An alias can be added to the location output by 'echo $profile' (if the file doesn't exist, create it), to run the script with the command 'pyvenv':
 
-      function runPyvenv { Invoke-Expression "PowerShell /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1" }
+      function runPyvenv { Invoke-Expression "PowerShell.exe /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1" }
       Set-Alias pyvenv runPyvenv
