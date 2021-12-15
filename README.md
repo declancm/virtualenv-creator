@@ -26,7 +26,7 @@ https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-
 
 2. Run the installation script if you wish to add the alias to your .bashrc:
 
-       . ~/virtualenv-creator/install.sh
+       . ~/virtualenv-creator/install-bash.sh
 
 ### PowerShell (Windows):
 
@@ -36,9 +36,13 @@ https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-
 
 1. Run the installation script if you wish to add the alias to your profile.ps1:
 
-_Note: For Windows PowerShell (the old version), replace pwsh with powershell._
+    - For PowerShell:
 
-       pwsh /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install.ps1
+           pwsh /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install-PS.ps1
+
+    - For Windows PowerShell
+           
+           PowerShell.exe /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install-WindowsPS.ps1
 
 ## Instructions
 
@@ -70,7 +74,7 @@ _Note: Ensure powershell has the permission to run scripts so it can run it's ow
 
 **To manually run the script:**
 
-_Note: For Windows PowerShell (the old version), replace all instances of pwsh with powershell._
+_Note: For Windows PowerShell (the old version), replace all instances of 'pwsh' with 'powershell'._
 
 - Enter the following command into PowerShell:
       
