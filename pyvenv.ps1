@@ -44,17 +44,17 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
       }
     }
     $gitignore = Read-Host -Prompt "`nDo you want the virtualenv to be ignored by git? (y/n) "
-    if ($activate -eq 'y') {
-      New-Item -Path $directory\$name -Name .gitignore -Type "file" -Value "*" | Out-Null -and "A .gitignore file was created."
-    } elseif ($activate -eq 'n') {
+    if ($gitignore -eq 'y' -or $gitignore -eq 'yes') {
+      New-Item -Path $directory\$name -Name .gitignore -Type "file" -Value "*" | Out-Null -and "A .gitignore file was created inside $name."
+    } elseif ($gitignore -eq 'n' -or $gitignore -eq 'no') {
       "The python virtualenv will not be ignored by git."
     } else {
       "You did not enter a valid answer. The python virtualenv will not be ignored by git."
     }
     $activate = Read-Host -Prompt "`nDo you want to activate the python venv? (y/n) "
-    if ($activate -eq 'y') {
+    if ($activate -eq 'y' -or $activate -eq 'yes') {
       Invoke-Expression "$directory\$name\Scripts\activate.ps1"
-    } elseif ($activate -eq 'n') {
+    } elseif ($activate -eq 'n' -or $activate -eq 'no') {
       "The python virtualenv will not be activated."
     } else {
       "You did not enter a valid answer. The python virtualenv will not be activated."

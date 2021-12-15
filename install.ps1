@@ -1,5 +1,5 @@
 $setAlias = Read-Host -Prompt "`nWould you like to add an alias to PowerShell? (y/n)"
-if ($setAlias -eq 'y') {
+if ($setAlias -eq 'y' -or $setAlias -eq 'yes') {
   $location = Write-Output $profile
   if (Test-Path $location) {
     if (Select-String -Path $location -Pattern "Set-Alias pyvenv runPyvenv" -SimpleMatch -Quiet) {
