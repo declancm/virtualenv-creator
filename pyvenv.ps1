@@ -29,9 +29,10 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
     $python = $where[$version]
   }
   "`nThe python virtual environment is being created..."
-  $status = $null
-  Invoke-Expression "virtualenv --python $python $directory\$name | Out-Null" -and $status = 'success'
-  if($status -eq 'success') {
+  # $status = $null
+  # & virtualenv --python $python $directory\$name | Out-Null && $status = "success"
+  Invoke-Expression "virtualenv --python $python $directory\$name" -ErrorVariable $status | Out-Null
+  if($null -eq $status) {
     while($true) {
       $libraries = Read-Host -Prompt "`nEnter the name of a library you would like to install (press Enter to skip) "
       if($libraries -ne '') {
@@ -62,7 +63,7 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
     } else {
       "You did not enter a valid answer. The python virtualenv will not be activated."
     }
-    "`nThe python virtualenv creation is complete.`n`nTo manually activate (from within any directory): $directory\$name\Scripts\activate.ps1`n"
+    "`nThe python virtualenv creation is complete.`n`nThe manual activation command:`n$directory\$name\Scripts\activate.ps1`n"
   } else {
     "`nThe python virtual environment could not be created.`n"
   }
