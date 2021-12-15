@@ -9,7 +9,7 @@ if ($setAlias -eq 'y') {
       "The alias was added.`n"
     }
   } else {
-    New-Item -Path ~\Documents\WindowsPowerShell -Name Microsoft.PowerShell_profile.ps1 -Type "file" -Value "function runPyvenv { Invoke-Expression `"PowerShell -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1`" }`nSet-Alias pyvenv runPyvenv" | Out-Null
+    New-Item -Path $location -Type "file" -Value "function runPyvenv { Invoke-Expression `"PowerShell -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1`" }`nSet-Alias pyvenv runPyvenv" | Out-Null
     "The profile.ps1 file was created and the alias was added.`n"
   }
 } else {
