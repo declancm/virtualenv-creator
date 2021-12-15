@@ -29,8 +29,9 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
     $python = $where[$version]
   }
   "`nThe python virtual environment is being created..."
-  $status = Invoke-Expression "virtualenv --python $python $directory\$name | Out-Null"
-  if($?) {
+  $status = $null
+  Invoke-Expression "virtualenv --python $python $directory\$name | Out-Null" -and $status = 'success'
+  if($status -eq 'success') {
     while($true) {
       $libraries = Read-Host -Prompt "`nEnter the name of a library you would like to install (press Enter to skip)"
       if($libraries -ne '') {
