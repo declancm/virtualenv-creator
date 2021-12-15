@@ -5,7 +5,7 @@ if ($setAlias -eq 'y') {
     if (Select-String -Path $location -Pattern "Set-Alias pyvenv runPyvenv" -SimpleMatch -Quiet) {
       "The alias has already been added to PowerShell.`n"
     } else {
-      Add-Content $location "`nfunction runPyvenv { Invoke-Expression `"PowerShell -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1`" }`nSet-Alias pyvenv runPyvenv"
+      Add-Content $location "`nfunction runPyvenv { Invoke-Expression `"PowerShell.exe /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1`" }`nSet-Alias pyvenv runPyvenv"
       "The alias was added.`n"
     }
   } else {
