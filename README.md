@@ -36,7 +36,7 @@ https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-
 
 1. Run the installation script if you wish to add the alias to your profile.ps1:
 
-       PowerShell.exe -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install.ps1
+       PowerShell.exe /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install.ps1
 
 ## Instructions
 
@@ -70,9 +70,9 @@ _Note: Ensure powershell has the permission to run scripts so it can run it's ow
 
 - Enter the following command into PowerShell:
       
-      PowerShell -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1
+      PowerShell /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1
 
 - An alias can be added to the location output by 'echo $profile' (if the file doesn't exist, create it), to run the script with the command 'pyvenv':
 
-      function runPyvenv { Invoke-Expression "PowerShell -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1" }
+      function runPyvenv { Invoke-Expression "PowerShell /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1" }
       Set-Alias pyvenv runPyvenv
