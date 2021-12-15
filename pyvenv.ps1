@@ -22,7 +22,7 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
     $number = $number + 1
   }
   if ($where[$number] -eq 'C') {
-    Read-Host -Prompt "    0.   $where`n`nOnly one version of python is installed (press Enter to continue)"
+    Read-Host -Prompt "    0.   $where`n`nOnly one version of python is installed (press Enter to continue) "
     $python = $where
   } else {
     $version = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use"
@@ -33,7 +33,7 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
   Invoke-Expression "virtualenv --python $python $directory\$name | Out-Null" -and $status = 'success'
   if($status -eq 'success') {
     while($true) {
-      $libraries = Read-Host -Prompt "`nEnter the name of a library you would like to install (press Enter to skip)"
+      $libraries = Read-Host -Prompt "`nEnter the name of a library you would like to install (press Enter to skip) "
       if($libraries -ne '') {
         Invoke-Expression "$directory\$name\Scripts\activate.ps1"
         Invoke-Expression "py -m pip install $libraries"
