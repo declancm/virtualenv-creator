@@ -60,8 +60,9 @@ else
         read gitignore
         if [ "$gitignore" = "y" ] || [ "$gitignore" = "Y" ] || [ "$gitignore" = "yes" ] || [ "$gitignore" = "Yes" ]
         then
+            # rm -f $directory\/$name/.gitignore
             # touch -f $directory\/$name/.gitignore
-            # printf '*' $directory\/$name/.gitignore >/dev/null
+            # printf "*" $directory\/$name/.gitignore >/dev/null
         elif [ "$gitignore" = "n" ] || [ "$gitignore" = "N" ] || [ "$gitignore" = "no" ] || [ "$gitignore" = "No" ]
         then
             printf "The python virtualenv will not be ignored by git.\n"
