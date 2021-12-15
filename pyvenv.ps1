@@ -18,12 +18,12 @@ if(Test-Path -Path "$directory\$name" -PathType Container) {
   "The type is: $type"
   $number = 0
   "`nThe installed python.exe versions:`n"
-  while (($where[$number]) -and ($where[$number] -gt 1) ) {
+  while (($where[$number]) -and ($where[$number] -ne 'C') ) {
     $current = $where[$number]
     "    $number.   $current"
     $number = $number + 1
   }
-  if ($where[$number] -eq 1) { "    0.   $where`n`nOnly one version of python is installed." }
+  if ($where[$number] -ne 'C') { "    0.   $where`n`nOnly one version of python is installed." }
   $version = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use"
   if ($where[$version] -eq 1) {
     $python = $where
