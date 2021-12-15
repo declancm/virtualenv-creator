@@ -78,9 +78,9 @@ _Note: For Windows PowerShell (the old version), replace all instances of 'pwsh'
 
 - Enter the following command into PowerShell:
       
-      pwsh /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1
+      pwsh /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1
 
 - An alias can be added to the location output by 'echo $profile' (if the file doesn't exist, create it), to run the script with the command 'pyvenv':
 
-      function runPyvenv { Invoke-Expression "pwsh /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv.ps1" }
+      function runPyvenv { Invoke-Expression "pwsh /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1" }
       Set-Alias pyvenv runPyvenv
