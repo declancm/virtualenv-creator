@@ -56,6 +56,21 @@ else
                 break
             fi
         done
+        printf "\nDo you want the virtualenv to be ignored by git? (y/n) "
+        read gitignore
+        if [ "$gitignore" = "y" ] || [ "$gitignore" = "Y" ] || [ "$gitignore" = "yes" ] || [ "$gitignore" = "Yes" ]
+        then
+            # rm -f $directory\/$name/.gitignore
+            # touch -f $directory\/$name/.gitignore
+            # printf "*" $directory\/$name/.gitignore >/dev/null
+        elif [ "$gitignore" = "n" ] || [ "$gitignore" = "N" ] || [ "$gitignore" = "no" ] || [ "$gitignore" = "No" ]
+        then
+            printf "The python virtualenv will not be ignored by git.\n"
+            rm -f $directory\/$name/.gitignore
+        else
+            printf "You did not enter a valid answer. The python virtualenv will not be ignored by git.\n"
+            rm -f $directory\/$name/.gitignore
+        fi
         printf "\nDo you want to activate the python venv? (y/n) "
         read activate
         if [ "$activate" = "y" ] || [ "$activate" = "Y" ] || [ "$activate" = "yes" ] || [ "$activate" = "Yes" ]

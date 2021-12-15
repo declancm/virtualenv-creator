@@ -1,6 +1,6 @@
 #!/bin/bash
 aliasSource="alias pyvenv=\"source $HOME/virtualenv-creator/pyvenv.sh\""
-printf "Would you like to source the alias for bash? (y/n) "
+printf "Would you like to add an aias to bash? (y/n) "
 read input
 if [ "$input" = "y" ] || [ "$input" = "Y" ] || [ "$input" = "yes" ] || [ "$input" = "Yes" ]
 then
@@ -13,7 +13,7 @@ then
         printf "The source link already exists.\n"
     else
         printf "\n$aliasSource\n" >> ~/.bashrc
-        printf "The alias was sourced successfully.\n"
+        printf "The alias was sourced successfully. Please restart bash for the alias to take effect.\n"
     fi
 else
     printf "The alias was not added.\n"
