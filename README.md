@@ -32,7 +32,7 @@ https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-
 
 1. Clone the git repo:
 
-       cd ~\Documents && git clone https://github.com/declancm/virtualenv-creator.git
+       cd ~\Documents; git clone https://github.com/declancm/virtualenv-creator.git; cd -
 
 1. Run the installation script if you wish to add the alias to your profile.ps1:
 
