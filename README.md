@@ -41,7 +41,7 @@ https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-
            pwsh /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install-PS.ps1
 
     - For Windows PowerShell
-           
+
            PowerShell.exe /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install-WindowsPS.ps1
 
 ## Instructions
@@ -77,10 +77,11 @@ _Note: Ensure powershell has the permission to run scripts so it can run it's ow
 _Note: For Windows PowerShell (the old version), replace all instances of 'pwsh' with 'powershell'._
 
 - Enter the following command into PowerShell:
-      
+
       pwsh /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1
 
 - An alias can be added to the location output by 'echo $profile' (if the file doesn't exist, create it), to run the script with the command 'pyvenv':
 
       function runPyvenv { Invoke-Expression "pwsh /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1" }
       Set-Alias pyvenv runPyvenv
+
