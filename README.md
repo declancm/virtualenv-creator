@@ -58,14 +58,14 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 
       source ~/virtualenv-creator/pyvenv.sh
 
-- This alias can be added to ~/.bashrc (if the file doesn't exist, create it),
+- This alias can be added to ~/.bashrc (if the file doesn't exist, create it),\
   to run the script with the command 'pyvenv':
 
       alias pyvenv='source ~/virtualenv-creator/pyvenv.sh'
 
 ### PowerShell Instructions (Windows)
 
-_Note: Ensure powershell has the permission to run scripts so it can run it's
+_Note: Ensure powershell has the permission to run scripts so it can run it's\
 own profile.ps1 script._
 
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
@@ -76,14 +76,14 @@ own profile.ps1 script._
 
 **To manually run the script:**
 
-_Note: For Windows PowerShell (the old version), replace all instances of
+_Note: For Windows PowerShell (the old version), replace all instances of\
 'pwsh' with 'powershell'._
 
 - Enter the following command into PowerShell:
 
       pwsh /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1
 
-- An alias can be added to the location output by 'echo $profile' (if the file
+- An alias can be added to the location output by 'echo $profile' (if the file\
   doesn't exist, create it), to run the script with the command 'pyvenv'
 
       function runPyvenv { Invoke-Expression "pwsh /nologo -ExecutionPolicy `
