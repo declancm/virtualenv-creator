@@ -22,37 +22,37 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 
 1. Clone the git repo:
 
-```bash
-git clone https://github.com/declancm/virtualenv-creator.git ~/virtualenv-creator
-```
+   ```bash
+   git clone https://github.com/declancm/virtualenv-creator.git ~/virtualenv-creator
+   ```
 
 2. Run the installation script if you wish to add the alias to your .bashrc:
 
-```bash
-. ~/virtualenv-creator/install-bash.sh
-```
+   ```bash
+   . ~/virtualenv-creator/install-bash.sh
+   ```
 
 ### PowerShell Installation (Windows)
 
 1. Clone the git repo:
 
-```powershell
-git clone https://github.com/declancm/virtualenv-creator.git $HOME\Documents\virtualenv-creator
-```
+   ```powershell
+   git clone https://github.com/declancm/virtualenv-creator.git $HOME\Documents\virtualenv-creator
+   ```
 
 1. Run the installation script if you wish to add the alias to your profile.ps1:
 
-  - For PowerShell:
+    - For PowerShell:
 
-```powershell
-pwsh /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install-PS.ps1
-```
+      ```powershell
+      pwsh /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install-PS.ps1
+      ```
 
-  - For Windows PowerShell
+    - For Windows PowerShell:
 
-```powershell
-PowerShell.exe /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install-WindowsPS.ps1
-```
+      ```powershell
+      PowerShell.exe /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install-WindowsPS.ps1
+      ```
 
 ## Instructions
 
@@ -60,22 +60,22 @@ PowerShell.exe /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creato
 
 **If install.sh script was run:**
 
-- Type `pyvenv` into Bash to run the script and create a python virtualenv.
+1. Type `pyvenv` into Bash to run the script and create a python virtualenv.
 
 **To manually run the script:**
 
-- Enter the following command into Bash:
+1. Enter the following command into Bash:
 
-```bash
-source ~/virtualenv-creator/pyvenv.sh
-```
+   ```bash
+   source ~/virtualenv-creator/pyvenv.sh
+   ```
 
-- This alias can be added to `~/.bashrc` (if the file doesn't exist, create it),\
+2. This alias can be added to `~/.bashrc` (if the file doesn't exist, create it),\
   to run the script with the command `pyvenv`:
 
-```bash
-alias pyvenv='source ~/virtualenv-creator/pyvenv.sh'
-```
+   ```bash
+   alias pyvenv='source ~/virtualenv-creator/pyvenv.sh'
+   ```
 
 ### PowerShell Instructions (Windows)
 
@@ -88,24 +88,24 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 
 **If install.ps1 script was run:**
 
-- Enter `pyvenv` into PowerShell to run the script and create a python virtualenv.
+1. Enter `pyvenv` into PowerShell to run the script and create a python virtualenv.
 
 **To manually run the script:**
 
 _Note: For Windows PowerShell (the old version), replace all instances of\
 'pwsh' with 'powershell'._
 
-- Enter the following command into PowerShell:
+1. Enter the following command into PowerShell:
 
-```powershell
-pwsh /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1
-```
+   ```powershell
+   pwsh /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1
+   ```
 
-- An alias can be added to the location output by `echo $profile` (if the file\
+2. An alias can be added to the location output by `echo $profile` (if the file\
   doesn't exist, create it), to run the script with the command `pyvenv`
 
-```powershell
-function runPyvenv { Invoke-Expression "pwsh /nologo -ExecutionPolicy `
-  Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1" }
-Set-Alias pyvenv runPyvenv
-```
+   ```powershell
+   function runPyvenv { Invoke-Expression "pwsh /nologo -ExecutionPolicy `
+     Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1" }
+   Set-Alias pyvenv runPyvenv
+   ```
