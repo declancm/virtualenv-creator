@@ -1,14 +1,14 @@
 # virtualenv-creator
-A fast and easy python virtual environment creator for **linux, mac and windows** that:
+
+A fast and easy python virtual environment creator for Bash and PowerShell that:
 
 - allows for python version selection after displaying currently installed versions,
 - fast library installation,
 - and automatic virtualenv activation.
 
-### PowerShell Demo Video:
+## PowerShell Demo Video
 
-https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-a398-cee993c00f5e.mp4
-
+<https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-a398-cee993c00f5e.mp4>
 
 ## Dependencies
 
@@ -18,7 +18,7 @@ https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-
 
 ## Installation
 
-### BASH (Linux and Mac):
+### Bash Installation (Linux and Mac)
 
 1. Clone the git repo:
 
@@ -28,7 +28,7 @@ https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-
 
        . ~/virtualenv-creator/install-bash.sh
 
-### PowerShell (Windows):
+### PowerShell Installation (Windows)
 
 1. Clone the git repo:
 
@@ -46,25 +46,27 @@ https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-
 
 ## Instructions
 
-### BASH (Linux and Mac):
+### Bash Instructions (Linux and Mac)
 
 **If install.sh script was run:**
 
-- Type 'pyvenv' into bash to run the script and create a python virtualenv.
+- Type 'pyvenv' into Bash to run the script and create a python virtualenv.
 
 **To manually run the script:**
 
-- Enter the following command into bash:
+- Enter the following command into Bash:
 
       source ~/virtualenv-creator/pyvenv.sh
 
-- This alias can be added to ~/.bashrc (if the file doesn't exist, create it), to run the script with the command 'pyvenv':
+- This alias can be added to ~/.bashrc (if the file doesn't exist, create it),
+  to run the script with the command 'pyvenv':
 
       alias pyvenv='source ~/virtualenv-creator/pyvenv.sh'
 
-### PowerShell (Windows):
+### PowerShell Instructions (Windows)
 
-_Note: Ensure powershell has the permission to run scripts so it can run it's own profile.ps1 script._
+_Note: Ensure powershell has the permission to run scripts so it can run it's
+own profile.ps1 script._
 
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
 
@@ -74,14 +76,17 @@ _Note: Ensure powershell has the permission to run scripts so it can run it's ow
 
 **To manually run the script:**
 
-_Note: For Windows PowerShell (the old version), replace all instances of 'pwsh' with 'powershell'._
+_Note: For Windows PowerShell (the old version), replace all instances of
+'pwsh' with 'powershell'._
 
 - Enter the following command into PowerShell:
 
       pwsh /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1
 
-- An alias can be added to the location output by 'echo $profile' (if the file doesn't exist, create it), to run the script with the command 'pyvenv':
+- An alias can be added to the location output by 'echo $profile' (if the file
+  doesn't exist, create it), to run the script with the command 'pyvenv'
 
-      function runPyvenv { Invoke-Expression "pwsh /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1" }
+      function runPyvenv { Invoke-Expression "pwsh /nologo -ExecutionPolicy `
+        Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1" }
       Set-Alias pyvenv runPyvenv
 
