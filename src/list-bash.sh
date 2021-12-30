@@ -49,6 +49,8 @@ while IFS= read -r line; do
   list+=("$line")
 done < $HOME/virtualenv-creator/data/virtualenvList.txt
 
+printf "A list of your created python virtualenvs :\n\n"
+
 # display a list of the virtual envs
 currentLine=${list[1]}
 n=1
@@ -58,5 +60,31 @@ do
     n=$((n + 1))
     currentLine=${list[$n]}
 done
+
+printf "\nEnter the number of a python virtualenv on the list : "
+read number
+printf "Enter 'a' to activate or 'd' to delete ${list[$number]} : "
+read input
+
+if [ "$input" = "a" ]
+then
+    source ${list[$number]}/bin/activate
+    return
+elif [ "$input" = "d" ]
+then
+    printf "Are you sure you want to delete ${list[$number]}? (y/n) "
+    read delete
+    if [ "$delete" = "y" ]
+    then
+        rm -rf ${list[$number]}
+        printf "The virtualenv was deleted.\n"
+    else
+        printf "The virtualenv was not deleted.\n"
+        return
+    fi
+else
+    printf "You did not enter a valid option. Exiting ...\n"
+    return
+fi
 
 # allow for easy activation or deletion of a virtualenv
