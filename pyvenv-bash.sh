@@ -23,9 +23,9 @@ else
     virtualenv --python python$version $directory/$name >/dev/null
     if [ $? -eq 0 ]
     then
-        if [ ! -e "~/Git/virtualenv-creator/virtualenvList" ]
+        if [ ! -e "~/Git/virtualenv-creator/data/virtualenvList" ]
         then
-            touch ~/Git/virtualenv-creator/virtualenvList.txt
+            touch ~/Git/virtualenv-creator/data/virtualenvList.txt
         fi
         printf "$directory/$name\n" >> ~/Git/virtualenv-creator/virtualenvList.txt
         while :
