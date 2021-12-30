@@ -26,7 +26,7 @@ else
         then
             touch ~/virtualenv-creator/data/virtualenvList.txt
         fi
-        printf "$directory/$name\n" >> ~/virtualenv-creator/virtualenvList.txt
+        printf "$directory/$name\n" >> ~/virtualenv-creator/data/virtualenvList.txt
         while :
         do
             printf "Enter the name of a library you would like to install (press Enter to skip) : "
