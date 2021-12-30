@@ -5,7 +5,6 @@
 printf "Enter the directory path where the python virtualenv will be installed: "
 read directory
 directory="${directory/#\~/$HOME}"
-#if . is used, convert to pwd
 workingDirectory=$(pwd)
 directory="${directory/#\./$workingDirectory}"
 printf "Enter the name of the python virtualenv: "
