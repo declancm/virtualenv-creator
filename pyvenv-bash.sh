@@ -5,6 +5,9 @@
 printf "Enter the directory path where the python virtualenv will be installed: "
 read directory
 directory="${directory/#\~/$HOME}"
+#if . is used, convert to pwd
+workingDirectory=$(pwd)
+directory="${directory/#\./$workingDirectory}"
 printf "Enter the name of the python virtualenv: "
 read name
 if [ -d "$directory/$name" ]
@@ -20,6 +23,11 @@ else
     virtualenv --python python$version $directory/$name >/dev/null
     if [ $? -eq 0 ]
     then
+        if [ ! -e "~/Git/virtualenv-creator/virtualenvList" ]
+        then
+            touch ~/Git/virtualenv-creator/virtualenvList.txt
+        fi
+        printf "$directory/$name\n" >> ~/Git/virtualenv-creator/virtualenvList.txt
         while :
         do
             printf "Enter the name of a library you would like to install (press Enter to skip) : "
