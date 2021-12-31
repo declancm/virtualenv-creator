@@ -103,6 +103,8 @@ if($initialInput -eq 'c') {
         "    $n.   $currentLine"
         $script:n++
         $currentLine = $list[$n]
+        $number = Read-Host -Prompt "`nTo select a virtualenv enter it's number (or press Enter to exit) "
+        if( $number -eq '0') { Return }
       }
     }
   } else if($initialInput -eq '') {
