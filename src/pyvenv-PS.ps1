@@ -113,14 +113,14 @@ if($initialInput -eq 'c') {
       $script:n++
       $currentLine = $list[$n]
     }
-    $number = Read-Host -Prompt "`nTo select a virtualenv enter the list number (or press Enter to exit) "
-    if($number -eq '') { Return }
-    $userInput = Read-Host -Prompt "Enter 'a' to activate or 'd' to delete '$list[$number]' (or press Enter to cancel) "
-    if($userInput -eq 'a') { Invoke-Expression "$list[$number]\Scripts\activate.ps1" }
+    $inputNumber = Read-Host -Prompt "`nTo select a virtualenv enter the list number (or press Enter to exit) "
+    if($inputNumber -eq '') { Return }
+    $userInput = Read-Host -Prompt "Enter 'a' to activate or 'd' to delete '$list[$inputNumber]' (or press Enter to cancel) "
+    if($userInput -eq 'a') { Invoke-Expression "$list[$inputNumber]\Scripts\activate.ps1" }
     if($userInput -eq 'd') {
-      $delete = Read-Host -Prompt "Are you sure you want to delete '$list[$number]'? (y/n) "
+      $delete = Read-Host -Prompt "Are you sure you want to delete '$list[$inputNumber]'? (y/n) "
       if($delete -eq 'y') {
-        Remove-Item -Path $list[$number] -Force -Confirm | Out-Null
+        Remove-Item -Path $list[$inputNumber] -Force -Confirm | Out-Null
         "The virtualenv was deleted."
       } else {
         "The virtualenv was not deleted."
