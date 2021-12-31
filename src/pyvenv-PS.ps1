@@ -37,12 +37,11 @@ if($initialInput -eq 'c') {
     "`nThe python virtual environment is being created..."
     $status = Invoke-Expression "virtualenv --python $python $directory\$name"
     if($status) {
+      if($Null -eq (Get-Content "$virtualenvList")) {
+        Add-Content $virtualenvList "$directory\$name"
+      }
+      else { Add-Content $virtualenvList "`n$directory\$name" }
       while($true) {
-        if($Null -eq (Get-Content "$virtualenvList")) {
-          Add-Content $virtualenvList "$directory\$name"
-        }
-        else { Add-Content $virtualenvList "`n$directory\$name" }
-
         $libraries = Read-Host -Prompt "`nEnter the name of a library you would like to install (press Enter to skip) "
         if($libraries -ne '') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
