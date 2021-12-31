@@ -4,7 +4,7 @@
 
 $initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs"
 if(-Not (Test-Path -Path "$HOME\Documents\virtualenv-creator\data\virtualenvList.txt" -PathType Leaf)) {
-  New-Item -Path $virtualenvList -ItemType "file" -Force | Out-Null
+  New-Item -ItemType File -Path $virtualenvList -Force | Out-Null
 }
 $virtualenvList = Get-Item "$HOME\Documents\virtualenv-creator\data\PowerShell\virtualenvList.txt"
 if($initialInput -eq 'c') {
