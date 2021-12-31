@@ -116,7 +116,7 @@ if($initialInput -eq 'c') {
     $number = Read-Host -Prompt "`nTo select a virtualenv enter the list number (or press Enter to exit) "
     if($number -eq '') { Return }
     $userInput = Read-Host -Prompt "Enter 'a' to activate or 'd' to delete '$list[$number]' (or press Enter to cancel) "
-    if($userInput -eq 'a') { Invoke-Expression "$directory\$name\Scripts\activate.ps1" }
+    if($userInput -eq 'a') { Invoke-Expression "$list[$number]\Scripts\activate.ps1" }
     if($userInput -eq 'd') {
       $delete = Read-Host -Prompt "Are you sure you want to delete '$list[$number]'? (y/n) "
       if($delete -eq 'y') {
