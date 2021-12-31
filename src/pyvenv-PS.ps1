@@ -117,8 +117,7 @@ if($initialInput -eq 'c') {
     $number = [int]$inputNumber
     $selectedLine = $list[$number]
     if($number -eq '') { Return }
-    $userInput = Read-Host -Prompt "Enter 'a' to activate or 'd' to delete '$selectedLine' (or press Enter to cancel) "
-    "Your input: $userInput"
+    $userInput = Read-Host -Prompt "`nEnter 'a' to activate or 'd' to delete '$selectedLine' (or press Enter to cancel) "
     if($userInput -eq 'a') {
       Invoke-Expression "$selectedLine\Scripts\activate.ps1"
       "The virtualenv was activated."
