@@ -128,10 +128,9 @@ if($initialInput -eq 'c') {
         else { "You did not enter a valid option." }
       }
     }
-  } else if($initialInput -eq '') {
+  } elseif($initialInput -eq '') {
     Return
-  }
-  else {
+  } else {
     "`nThat was not a valid input.`n"
     Return
   }
