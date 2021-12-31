@@ -114,10 +114,7 @@ if($initialInput -eq 'c') {
       $currentLine = $list[$n]
     }
     $inputNumber = Read-Host -Prompt "`nTo select a virtualenv enter the list number (or press Enter to exit) "
-    $number = [int]$inputNumber
-    $selectedLine = $list[$number]
-    "Your input number: $number"
-    # "The virtualenv: $list[$number]"
+    $selectedLine = $list[[int]$inputNumber]
     if($number -eq '') { Return }
     $userInput = Read-Host -Prompt "Enter 'a' to activate or 'd' to delete '$selectedLine' (or press Enter to cancel) "
     "Your input: $userInput"
