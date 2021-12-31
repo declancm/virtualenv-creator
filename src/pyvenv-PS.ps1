@@ -69,13 +69,39 @@ if($initialInput -eq 'c') {
       "`nThe python virtual environment could not be created.`n"
     }
   } else if($initialInput -eq 'l') {
-  # continue
-  $virtualenvList = Get-Item "$HOME/Documents/virtualenv-creator/data/PowerShell/virtualenvList.txt"
+    $virtualenvList = Get-Item "$HOME\Documents\virtualenv-creator\data\PowerShell\virtualenvList.txt"
+    while($true) {
+      if(Test-Path $virtualenvList) {
+        if((Get-Content "$virtualenvList") -eq $Null) {
+          "`nThe list file is empty. Have you created a virtualenv?"
+          Return
+        }
+      } else {
+        "`nA list file does not exit. Have you created a virtualenv?"
+          Return
+      }
+      [string[]]$list = Get-Content -Path $virtualenvList
+      $n = $list.Length
+      $currentLine = $list[$n]
+      while($currenLine) {
+        if(-Not (Test-Path $currentLine\Scripts\activate.ps1)) {
+          Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine)
+          # Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine -NotMatch)
+        }
+        $script:n++
+        $currentLine = $list[$n]
+      }
+      if((Get-Content "$virtualenvList") -eq $Null) {
+        "`nThe list file is empty. Have you created a virtualenv?"
+        Return
+      }
+      [string[]]$list = Get-Content -Path $virtualenvList
+    }
   } else if($initialInput -eq '') {
     Return
   }
   else {
     "`nThat was not a valid input.`n"
     Return
-    }
+  }
 }
