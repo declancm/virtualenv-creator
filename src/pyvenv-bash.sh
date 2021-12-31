@@ -4,6 +4,7 @@
 #!/bin/bash
 printf "Enter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs: "
 read input
+printf "\n"
 if [ "$input" = "c" ]
 then
     printf "Enter the directory path where the python virtualenv will be installed: "

@@ -51,40 +51,46 @@ done < $HOME/virtualenv-creator/data/virtualenvList.txt
 
 printf "A list of your created python virtualenvs :\n\n"
 
-# display a list of the virtual envs
-currentLine=${list[1]}
-n=1
-while [ -n "$currentLine" ]
+while :
 do
-    printf "$n. $currentLine\n"
-    n=$((n + 1))
-    currentLine=${list[$n]}
-done
+    # display a list of the virtual envs
+    currentLine=${list[1]}
+    n=1
+    while [ -n "$currentLine" ]
+    do
+        printf "    $n.    $currentLine\n"
+        n=$((n + 1))
+        currentLine=${list[$n]}
+    done
 
-printf "\nEnter the number of a python virtualenv on the list : "
-read number
-printf "Enter 'a' to activate or 'd' to delete ${list[$number]} : "
-read input
+    printf "\nEnter the number of a python virtualenv to select (press Enter to exit) : "
+    read number
 
-if [ "$input" = "a" ]
-then
-    source ${list[$number]}/bin/activate
-    return
-elif [ "$input" = "d" ]
-then
-    printf "Are you sure you want to delete ${list[$number]}? (y/n) "
-    read delete
-    if [ "$delete" = "y" ]
+    # exit on blank input
+    if [ "$number" = "" ]
     then
-        rm -rf ${list[$number]}
-        printf "The virtualenv was deleted.\n"
-    else
-        printf "The virtualenv was not deleted.\n"
+        printf "Exiting...\n"
         return
     fi
-else
-    printf "You did not enter a valid option. Exiting ...\n"
-    return
-fi
 
-# allow for easy activation or deletion of a virtualenv
+    printf "Enter 'a' to activate or 'd' to delete ${list[$number]} : "
+    read input
+
+    if [ "$input" = "a" ]
+    then
+        source ${list[$number]}/bin/activate
+    elif [ "$input" = "d" ]
+    then
+        printf "Are you sure you want to delete ${list[$number]}? (y/n) "
+        read delete
+        if [ "$delete" = "y" ]
+        then
+            rm -rf ${list[$number]}
+            printf "The virtualenv was deleted.\n"
+        else
+            printf "The virtualenv was not deleted.\n"
+        fi
+    else
+        printf "You did not enter a valid option.\n"
+    fi
+done
