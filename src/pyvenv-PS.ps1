@@ -83,12 +83,12 @@ if($initialInput -eq 'c') {
       [string[]]$list = Get-Content -Path $virtualenvList
       $n = $list.Length
       $currentLine = $list[$n]
-      while($currenLine) {
+      while($currentLine) {
         if(-Not (Test-Path $currentLine\Scripts\activate.ps1)) {
           Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine)
           # Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine -NotMatch)
         }
-        $script:n++
+        $script:n--
         $currentLine = $list[$n]
       }
       if((Get-Content "$virtualenvList") -eq $Null) {
@@ -96,6 +96,14 @@ if($initialInput -eq 'c') {
         Return
       }
       [string[]]$list = Get-Content -Path $virtualenvList
+      "`nA list of your created python virtualenvs :`n"
+      $n = 0
+      currentLine = $list[$n]
+      while( $currentLine ) {
+        "    $n.   $currentLine"
+        $script:n++
+        $currentLine = $list[$n]
+      }
     }
   } else if($initialInput -eq '') {
     Return
