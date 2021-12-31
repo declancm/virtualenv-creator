@@ -108,7 +108,7 @@ if($initialInput -eq 'c') {
     "`nA list of your created python virtualenvs :`n"
     $n = 0
     $currentLine = $list[$n]
-    while( $currentLine ) {
+    while($Null -ne $currentLine) {
       "    $n.   $currentLine"
       $script:n++
       $currentLine = $list[$n]
