@@ -120,7 +120,7 @@ if($initialInput -eq 'c') {
     $userInput = Read-Host -Prompt "Enter 'a' to activate or 'd' to delete '$selectedLine' (or press Enter to cancel) "
     "Your input: $userInput"
     if($userInput -eq 'a') { Invoke-Expression "$selectedLine\Scripts\activate.ps1" }
-    if($userInput -eq 'd') {
+    elseif($userInput -eq 'd') {
       $delete = Read-Host -Prompt "Are you sure you want to delete '$selectedLine'? (y/n) "
       if($delete -eq 'y') {
         Remove-Item -Path $selectedLine -Force -Confirm | Out-Null
