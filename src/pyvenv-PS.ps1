@@ -2,7 +2,7 @@
 # Created by Declan Mullen
 # Git repository can be found at https://github.com/declancm/virtualenv-creator
 
-$initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs: "
+$initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs "
 if($initialInput -eq 'c') {
   $directoryString = Read-Host -Prompt "`nEnter the directory path where the python virtual environment will be installed"
   if(Test-Path $directoryString) {
