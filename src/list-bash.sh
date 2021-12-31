@@ -5,15 +5,14 @@
 
 while :
 do
-
     # check if the file is exists?
     if [ ! -e "$HOME/virtualenv-creator/data/virtualenvList.txt" ]
     then
-        printf "A list file does not exist. Have you created a virtualenv?\n"
+        printf "\nA list file does not exist. Have you created a virtualenv?\n"
         return
     elif [ ! -s $HOME/virtualenv-creator/data/virtualenvList.txt ]
     then
-        printf "The list file is empty. Have you created a virtualenv?\n"
+        printf "\nThe list file is empty. Have you created a virtualenv?\n"
         return
     fi
 
@@ -42,7 +41,7 @@ do
     # check the file isn't empty
     if [ ! -s $HOME/virtualenv-creator/data/virtualenvList.txt ]
     then
-        printf "The list file is empty. Have you created a virtualenv?\n"
+        printf "\nThe list file is empty. Have you created a virtualenv?\n"
         return
     fi
 
@@ -52,7 +51,7 @@ do
         list+=("$line")
     done < $HOME/virtualenv-creator/data/virtualenvList.txt
 
-    printf "A list of your created python virtualenvs :\n\n"
+    printf "\nA list of your created python virtualenvs :\n\n"
 
     # display a list of the virtual envs
     currentLine=${list[1]}
@@ -64,17 +63,16 @@ do
         currentLine=${list[$n]}
     done
 
-    printf "\nTo select a virtualenv enter it's list number (or press Enter to exit) : "
+    printf "\nTo select a virtualenv enter it's number (or press Enter to exit) : "
     read number
 
     # exit on blank input
     if [ "$number" = "" ]
     then
-        printf "Exiting...\n"
         return
     fi
 
-    printf "Enter 'a' to activate or 'd' to delete ${list[$number]} : "
+    printf "Enter 'a' to activate or 'd' to delete '${list[$number]}' (or press Enter to cancel) : "
     read input
 
     if [ "$input" = "a" ]
@@ -82,7 +80,7 @@ do
         source ${list[$number]}/bin/activate
     elif [ "$input" = "d" ]
     then
-        printf "Are you sure you want to delete ${list[$number]}? (y/n) "
+        printf "Are you sure you want to delete '${list[$number]}'? (y/n) "
         read delete
         if [ "$delete" = "y" ]
         then
@@ -91,6 +89,9 @@ do
         else
             printf "The virtualenv was not deleted.\n"
         fi
+    elif [ "$input" = "" ]
+    then
+        continue
     else
         printf "You did not enter a valid option.\n"
     fi
