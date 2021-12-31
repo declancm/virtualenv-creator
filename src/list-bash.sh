@@ -65,7 +65,7 @@ do
         currentLine=${list[$n]}
     done
 
-    printf "\nTo select a virtualenv enter it's number (or press Enter to exit) : "
+    printf "\nTo select a virtualenv enter the list number (or press Enter to exit) : "
     read number
 
     # exit on blank input
