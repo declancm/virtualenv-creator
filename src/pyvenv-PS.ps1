@@ -38,9 +38,10 @@ if($initialInput -eq 'c') {
     $status = Invoke-Expression "virtualenv --python $python $directory\$name"
     if($status) {
       if($Null -eq (Get-Content -Path $virtualenvList)) {
-        Add-Content -Path $virtualenvList -Value "$directory\$name"
+        Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
+      } else {
+        Add-Content -Path $virtualenvList -Value "`n$directory\$name" -Force
       }
-      else { Add-Content -Path $virtualenvList -Value "`n$directory\$name" }
       while($true) {
         $libraries = Read-Host -Prompt "`nEnter the name of a library you would like to install (press Enter to skip) "
         if($libraries -ne '') {
