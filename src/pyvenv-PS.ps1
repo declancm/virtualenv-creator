@@ -106,7 +106,7 @@ if($initialInput -eq 'c') {
     [string[]]$list = Get-Content -Path $virtualenvList
     "`nA list of your created python virtualenvs :`n"
     $n = 0
-    currentLine = $list[$n]
+    $currentLine = $list[$n]
     while( $currentLine ) {
       "    $n.   $currentLine"
       $script:n++
