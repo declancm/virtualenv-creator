@@ -76,61 +76,61 @@ if($initialInput -eq 'c') {
     } else {
       "`nThe python virtual environment could not be created.`n"
     }
-  } elseif($initialInput -eq 'l') {
-    while($true) {
-      if(Test-Path $virtualenvList) {
-        if($Null -eq (Get-Content "$virtualenvList")) {
-          "`nThe list file is empty. Have you created a virtualenv?"
-          Return
-        }
-      } else {
-        "`nA list file does not exit. Have you created a virtualenv?"
-          Return
-      }
-      [string[]]$list = Get-Content -Path $virtualenvList
-      $n = $list.Length
-      $currentLine = $list[$n]
-      while($currentLine) {
-        if(-Not (Test-Path $currentLine\Scripts\activate.ps1)) {
-          Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine)
-          # Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine -NotMatch)
-        }
-        $script:n--
-        $currentLine = $list[$n]
-      }
+  }
+} elseif($initialInput -eq 'l') {
+  while($true) {
+    if(Test-Path $virtualenvList) {
       if($Null -eq (Get-Content "$virtualenvList")) {
         "`nThe list file is empty. Have you created a virtualenv?"
         Return
       }
-      [string[]]$list = Get-Content -Path $virtualenvList
-      "`nA list of your created python virtualenvs :`n"
-      $n = 0
-      currentLine = $list[$n]
-      while( $currentLine ) {
-        "    $n.   $currentLine"
-        $script:n++
-        $currentLine = $list[$n]
-        $number = Read-Host -Prompt "`nTo select a virtualenv enter it's number (or press Enter to exit) "
-        if($number -eq '') { Return }
-        $userInput = Read-Host -Prompt "Enter 'a' to activate or 'd' to delete '$list[$number]' (press Enter to cancel) "
-        if($userInput -eq 'a') { Invoke-Expression "$directory\$name\Scripts\activate.ps1" }
-        if($userInput -eq 'd') {
-          $delete = Read-Host -Prompt "Are you sure you want to delete '$list[$number]'? (y/n) "
-          if($delete -eq 'y') {
-            Remove-Item -Path $list[$number] -Force -Confirm | Out-Null
-            "The virtualenv was deleted."
-          } else {
-            "The virtualenv was not deleted."
-          }
-        }
-        elseif($userInput -eq '') { continue }
-        else { "You did not enter a valid option." }
-      }
+    } else {
+      "`nA list file does not exit. Have you created a virtualenv?"
+        Return
     }
-  } elseif($initialInput -eq '') {
-    Return
-  } else {
-    "`nThat was not a valid input.`n"
-    Return
+    [string[]]$list = Get-Content -Path $virtualenvList
+    $n = $list.Length
+    $currentLine = $list[$n]
+    while($currentLine) {
+      if(-Not (Test-Path $currentLine\Scripts\activate.ps1)) {
+        Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine)
+        # Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine -NotMatch)
+      }
+      $script:n--
+      $currentLine = $list[$n]
+    }
+    if($Null -eq (Get-Content "$virtualenvList")) {
+      "`nThe list file is empty. Have you created a virtualenv?"
+      Return
+    }
+    [string[]]$list = Get-Content -Path $virtualenvList
+    "`nA list of your created python virtualenvs :`n"
+    $n = 0
+    currentLine = $list[$n]
+    while( $currentLine ) {
+      "    $n.   $currentLine"
+      $script:n++
+      $currentLine = $list[$n]
+      $number = Read-Host -Prompt "`nTo select a virtualenv enter it's number (or press Enter to exit) "
+      if($number -eq '') { Return }
+      $userInput = Read-Host -Prompt "Enter 'a' to activate or 'd' to delete '$list[$number]' (press Enter to cancel) "
+      if($userInput -eq 'a') { Invoke-Expression "$directory\$name\Scripts\activate.ps1" }
+      if($userInput -eq 'd') {
+        $delete = Read-Host -Prompt "Are you sure you want to delete '$list[$number]'? (y/n) "
+        if($delete -eq 'y') {
+          Remove-Item -Path $list[$number] -Force -Confirm | Out-Null
+          "The virtualenv was deleted."
+        } else {
+          "The virtualenv was not deleted."
+        }
+      }
+      elseif($userInput -eq '') { continue }
+      else { "You did not enter a valid option." }
+    }
   }
+} elseif($initialInput -eq '') {
+  Return
+} else {
+  "`nThat was not a valid input.`n"
+  Return
 }
