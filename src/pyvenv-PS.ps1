@@ -2,7 +2,8 @@
 # Created by Declan Mullen
 # Git repository can be found at https://github.com/declancm/virtualenv-creator
 
-$initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs "
+$initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs"
+$virtualenvList = Get-Item "$HOME\Documents\virtualenv-creator\data\PowerShell\virtualenvList.txt"
 if($initialInput -eq 'c') {
   $directoryString = Read-Host -Prompt "`nEnter the directory path where the python virtual environment will be installed"
   if(Test-Path $directoryString) {
@@ -35,6 +36,13 @@ if($initialInput -eq 'c') {
     $status = Invoke-Expression "virtualenv --python $python $directory\$name"
     if($status) {
       while($true) {
+        if(-Not (Test-Path -Path "$HOME\Documents\virtualenv-creator\data\virtualenvList.txt" -PathType File)) {
+          New-Item -Path $virtualenvList -Type File -Force | Out-Null
+        } elseif($Null -eq (Get-Content "$virtualenvList")) {
+          Add-Content $virtualenvList "$directory\$name"
+        }
+        else { Add-Content $virtualenvList "`n$directory\$name" }
+
         $libraries = Read-Host -Prompt "`nEnter the name of a library you would like to install (press Enter to skip) "
         if($libraries -ne '') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
@@ -69,10 +77,9 @@ if($initialInput -eq 'c') {
       "`nThe python virtual environment could not be created.`n"
     }
   } else if($initialInput -eq 'l') {
-    $virtualenvList = Get-Item "$HOME\Documents\virtualenv-creator\data\PowerShell\virtualenvList.txt"
     while($true) {
       if(Test-Path $virtualenvList) {
-        if((Get-Content "$virtualenvList") -eq $Null) {
+        if($Null -eq (Get-Content "$virtualenvList")) {
           "`nThe list file is empty. Have you created a virtualenv?"
           Return
         }
@@ -91,7 +98,7 @@ if($initialInput -eq 'c') {
         $script:n--
         $currentLine = $list[$n]
       }
-      if((Get-Content "$virtualenvList") -eq $Null) {
+      if($Null -eq (Get-Content "$virtualenvList")) {
         "`nThe list file is empty. Have you created a virtualenv?"
         Return
       }
