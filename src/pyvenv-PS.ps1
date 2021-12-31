@@ -37,7 +37,7 @@ if($initialInput -eq 'c') {
     "`nThe python virtual environment is being created..."
     $status = Invoke-Expression "virtualenv --python $python $directory\$name"
     if($status) {
-      if($Null -eq (Get-Content "$virtualenvList")) {
+      if($Null -eq (Get-Content -Path $virtualenvList)) {
         Add-Content $virtualenvList "$directory\$name"
       }
       else { Add-Content $virtualenvList "`n$directory\$name" }
@@ -79,7 +79,7 @@ if($initialInput -eq 'c') {
 } elseif($initialInput -eq 'l') {
   while($true) {
     if(Test-Path $virtualenvList) {
-      if($Null -eq (Get-Content "$virtualenvList")) {
+      if($Null -eq (Get-Content -Path $virtualenvList)) {
         "`nThe list file is empty. Have you created a virtualenv?"
         Return
       }
@@ -98,7 +98,7 @@ if($initialInput -eq 'c') {
       $script:n--
       $currentLine = $list[$n]
     }
-    if($Null -eq (Get-Content "$virtualenvList")) {
+    if($Null -eq (Get-Content -Path $virtualenvList)) {
       "`nThe list file is empty. Have you created a virtualenv?"
       Return
     }
