@@ -1,4 +1,3 @@
-
 # Created by Declan Mullen
 # Git repository can be found at https://github.com/declancm/virtualenv-creator
 
@@ -77,7 +76,7 @@ if($initialInput -eq 'c') {
     } else {
       "`nThe python virtual environment could not be created.`n"
     }
-  } else if($initialInput -eq 'l') {
+  } elseif($initialInput -eq 'l') {
     while($true) {
       if(Test-Path $virtualenvList) {
         if($Null -eq (Get-Content "$virtualenvList")) {
