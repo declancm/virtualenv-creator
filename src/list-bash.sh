@@ -3,14 +3,16 @@
 
 #!/bin/bash
 
+virtualenvList=$HOME/virtualenv-creator/data/Bash/virtualenvList.txt
+
 while :
 do
     # check if the file is exists?
-    if [ ! -e "$HOME/virtualenv-creator/data/virtualenvList.txt" ]
+    if [ ! -e "$virtualenvList" ]
     then
         printf "\nA list file does not exist. Have you created a virtualenv?\n"
         return
-    elif [ ! -s $HOME/virtualenv-creator/data/virtualenvList.txt ]
+    elif [ ! -s $virtualenvList ]
     then
         printf "\nThe list file is empty. Have you created a virtualenv?\n"
         return
@@ -21,7 +23,7 @@ do
     list=()
     while IFS= read -r line; do
         list+=("$line")
-    done < $HOME/virtualenv-creator/data/virtualenvList.txt
+    done < $virtualenvList
 
     # check that each item on the list still exists
     n=${#list}
@@ -31,7 +33,7 @@ do
         if [ ! -e "$currentLine/bin/activate" ]
         then
             # remove the deleted virtualenv from the list
-            sed -i "$n d" $HOME/virtualenv-creator/data/virtualenvList.txt
+            sed -i "$n d" $virtualenvList
         fi
         # the list is incremented backwards to ensure the element positions are correct
         n=$((n - 1))
@@ -39,7 +41,7 @@ do
     done
 
     # check the file isn't empty
-    if [ ! -s $HOME/virtualenv-creator/data/virtualenvList.txt ]
+    if [ ! -s $virtualenvList ]
     then
         printf "\nThe list file is empty. Have you created a virtualenv?\n"
         return
@@ -49,7 +51,7 @@ do
     list=()
     while IFS= read -r line; do
         list+=("$line")
-    done < $HOME/virtualenv-creator/data/virtualenvList.txt
+    done < $virtualenvList
 
     printf "\nA list of your created python virtualenvs :\n\n"
 

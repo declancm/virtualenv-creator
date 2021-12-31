@@ -26,11 +26,11 @@ then
         virtualenv --python python$version $directory/$name >/dev/null
         if [ $? -eq 0 ]
         then
-            if [ ! -e "~/virtualenv-creator/data/virtualenvList" ]
+            if [ ! -e "~/virtualenv-creator/data/Bash/virtualenvList" ]
             then
-                touch ~/virtualenv-creator/data/virtualenvList.txt
+                touch ~/virtualenv-creator/data/Bash/virtualenvList.txt
             fi
-            printf "$directory/$name\n" >> ~/virtualenv-creator/data/virtualenvList.txt
+            printf "$directory/$name\n" >> ~/virtualenv-creator/data/Bash/virtualenvList.txt
             while :
             do
                 printf "Enter the name of a library you would like to install (press Enter to skip) : "
