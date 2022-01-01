@@ -128,7 +128,7 @@ if($initialInput -eq 'c') {
     elseif($userInput -eq 'd') {
       $delete = Read-Host -Prompt "Are you sure you want to delete '$selectedLine'? (y/n) "
       if($delete -eq 'y') {
-        Remove-Item -Path $selectedLine -Force -Recursive | Out-Null
+        Remove-Item -Path $selectedLine -Force -Recurse | Out-Null
         "The virtualenv was deleted."
       } else {
         "The virtualenv was not deleted."
