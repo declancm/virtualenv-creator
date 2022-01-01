@@ -27,7 +27,13 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
    git clone https://github.com/declancm/virtualenv-creator.git ~/virtualenv-creator
    ```
 
-2. Run the installation script if you wish to add the alias to your .bashrc:
+2. Make the script files executable:
+
+   ```bash
+   chmod -R +x ~/virtualenv-creator
+   ```
+
+3. Run the installation script if you wish to add the alias to your .bashrc:
 
    ```bash
    . ~/virtualenv-creator/install-bash.sh
