@@ -96,7 +96,8 @@ if($initialInput -eq 'c') {
       if(-Not (Test-Path $currentLine\Scripts\activate.ps1)) {
         # Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine)
         # Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine -NotMatch)
-        (Get-Content $virtualenvList) -NotMatch $currentLine | Out-File $virtualenvList
+        $contents = Get-Content $virtualenvList
+        $contents -Replace $contents[$n - 1],"" | Set-Content $virtualenvList
       }
       $script:n--
       $currentLine = $list[$n]
