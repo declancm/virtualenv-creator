@@ -73,7 +73,8 @@ if($initialInput -eq 'c') {
       } else {
         "You did not enter a valid answer. The python virtualenv will not be activated."
       }
-      "`nThe python virtualenv creation is complete.`n`nThe manual activation command:`n$directory\$name\Scripts\activate.ps1`n"
+      "`nThe python virtualenv creation is complete.`n"
+      # "The manual activation command:`n$directory\$name\Scripts\activate.ps1`n"
     } else {
       "`nThe python virtual environment could not be created.`n"
     }

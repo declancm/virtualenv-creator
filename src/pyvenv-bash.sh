@@ -103,7 +103,8 @@ then
                 # cd - 2>&1 >/dev/null
                 cd $OLDPWD
             fi
-            printf "\nThe python virtualenv is created.\nTo manually activate (from within any directory): source $directory/$name/bin/activate\n\n"
+            printf "\nThe python virtualenv creation is complete.\n\n"
+            # printf "To manually activate (from within any directory): source $directory/$name/bin/activate\n\n"
         else
             printf "\nThe python virtualenv could not be created.\n"
         fi
