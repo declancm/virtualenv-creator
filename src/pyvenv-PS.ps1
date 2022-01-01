@@ -92,12 +92,10 @@ if($initialInput -eq 'c') {
     [string[]]$list = Get-Content -Path $virtualenvList
     $n = $list.Length
     $currentLine = $list[$n]
-    while($currentLine) {
+    while($Null -ne $currentLine) {
       if(-Not (Test-Path $currentLine\Scripts\activate.ps1)) {
         # Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine)
-        # Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine -NotMatch)
-        $contents = Get-Content $virtualenvList
-        $contents -Replace $contents[$n - 1],"" | Set-Content $virtualenvList
+        Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine -NotMatch)
       }
       $script:n--
       $currentLine = $list[$n]
