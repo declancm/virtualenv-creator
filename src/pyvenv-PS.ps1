@@ -95,7 +95,8 @@ if($initialInput -eq 'c') {
     while($currentLine) {
       if(-Not (Test-Path $currentLine\Scripts\activate.ps1)) {
         # Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine)
-        Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine -NotMatch)
+        # Set-Content -Path $virtualenvList -Value (Get-Content -Path $virtualenvList | Select-String -Pattern $currentLine -NotMatch)
+        (Get-Content $virtualenvList) -NotMatch $currentLine | Out-File $virtualenvList
       }
       $script:n--
       $currentLine = $list[$n]
