@@ -2,7 +2,7 @@
 # Git repository can be found at git://github.com/declancm/virtualenv-creator
 
 #!/bin/bash
-printf "Enter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs: "
+printf "\nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs: "
 read input
 if [ "$input" = "c" ]
 then
@@ -18,7 +18,16 @@ then
         printf "A folder already exists in that directory with that name.\n"
     else
         printf "\nThe installed python versions:\n\n"
-        ls -ls /usr/bin/python*[^config]
+        # ls -ls /usr/bin/python*[^config]
+        list=($(ls /usr/bin/python*[^config]))
+        listNumber=1
+        for listItem in "${list[@]}"
+        do
+            printf "    $listNumber.   $listItem\n"
+            # let "n=n+1"
+            ((listNumber++))
+        done
+
         printf "\nEnter the version of python you would like to use (eg. 3.9): "
         read version
         mkdir -p $directory
