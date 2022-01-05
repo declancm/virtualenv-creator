@@ -24,7 +24,8 @@ then
         for listItem in "${list[@]}"
         do
             printf "    $listNumber.   $listItem\n"
-            # let "n=n+1"
+            printf "$list[0]"
+            printf "$list[1]"
             ((listNumber++))
         done
 
