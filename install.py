@@ -12,16 +12,18 @@ def addAlias(alias, profileLocation):
         if os.path.getsize(profileLocation) == 0:
             profile.write(alias)
             profile.close()
-            exit("\nThe alias has been installed for '{}'.\n".format(shell))
+            print("\nThe alias has been installed for '{}'.".format(shell))
+            return
         elif alias not in profile:
             profile.write("\n{}".format(alias))
             profile.close()
-            exit("\nThe alias has been installed for '{}'.\n".format(shell))
+            print("\nThe alias has been installed for '{}'.".format(shell))
+            return
         profile.close()
         exit("\nThe alias has already been added for '{}'.\n".format(shell))
 
 while True:
-    shellList = ["Bash (Linux)", "PowerShell (Windows)"]
+    shellList = ["Bash (Linux)", "ZSH", "PowerShell (Windows)"]
     print("\nList of supported shells: \n")
     n = 0
     for item in shellList:
@@ -49,22 +51,20 @@ projectPath = os.getcwd()
 if shell == "Bash (Linux)":
     profileLocation = expandPath('~/.bashrc')
     alias = "alias pyvenv='source {}/src/Bash/pyvenv.sh'".format(projectPath)
-    # with open(bashrcLocation, 'a+') as bashrc:
-    #     if os.path.getsize(bashrcLocation) == 0:
-    #         bashrc.write(bashAlias)
-    #     bashrc.seek(0)
-    #     if bashAlias not in bashrc:
-    #         bashrc.write("\n{}".format(bashAlias))
-    #     else:
-    #         bashrc.close()
-    #         exit("\nThe alias has already been added for Bash.\n")
-    #     bashrc.close()
     addAlias(alias, profileLocation)
+    exit("\nPlease run '. ~/.bashrc' to refresh your terminal configuration and complete installation.\n")
+
+if shell == "ZSH":
+    profileLocation = expandPath('~/.zshrc')
+    alias = "alias pyvenv='source {}/src/Bash/pyvenv.sh'".format(projectPath)
+    addAlias(alias, profileLocation)
+    exit("\nPlease run '. ~/.zshrc' to reload your terminal configuration and complete installation.\n")
 
 elif shell == "PowerShell (Windows)":
     profileLocation = expandPath('%USERPROFILE%\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1')
     alias = "function runPyvenv {{ Invoke-Expression \"PowerShell.exe /nologo -ExecutionPolicy Bypass -NoExit -File {}\\src\\PowerShell\\pyvenv.ps1\" }}; Set-Alias pyvenv runPyvenv".format(projectPath)
     addAlias(alias, profileLocation)
+    exit("\nPlease run '. $profile' to reload your terminal configuration and complete installation.\n")
 
 else:
     exit("\nError: A valid shell wasn't selected.\n")
