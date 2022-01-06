@@ -5,9 +5,6 @@ $projectPath = (Get-Item $PSCommandPath).Directory.Parent.Parent.FullName
 $virtualenvList = Join-Path -Path $projectPath -ChildPath \data\Powershell\virtualenvList.txt
 
 $initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs"
-if(-Not (Test-Path -Path $virtualenvList -PathType Leaf)) {
-  New-Item -ItemType File -Path $virtualenvList | Out-Null
-}
 if($initialInput -eq 'c') {
   $directoryString = Read-Host -Prompt "`nEnter the directory path where the python virtual environment will be installed"
   if(Test-Path $directoryString) {
@@ -43,6 +40,9 @@ if($initialInput -eq 'c') {
       # } else {
       #   Add-Content -Path $virtualenvList -Value "`n$directory\$name" -Force
       # }
+      if(-Not (Test-Path -Path $virtualenvList -PathType Leaf)) {
+        New-Item -ItemType File -Path $virtualenvList | Out-Null
+      }
       $searchString = Select-String -Path $virtualenvList -Pattern "$directory\$name" -SimpleMatch
       if ($null -eq $searchString) {
         Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
