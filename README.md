@@ -7,6 +7,10 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 - gives a list of all the virtualenvs created with this tool which the user can\
   select from and either activate or delete.
 
+Supported shells:
+
+-
+
 <!-- ## PowerShell Demo Video
 
 <https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-a398-cee993c00f5e.mp4> -->
