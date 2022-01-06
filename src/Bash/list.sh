@@ -37,6 +37,8 @@ check_list() {
             printf "\nError: You did not enter a valid option.\n\n"
             return 1
         fi
+    else
+        return 0
     fi
 }
 
@@ -46,7 +48,9 @@ list() {
     do
         check_list
         if [ $? -eq 1 ]
+        then
             return
+        fi
 
         # add each line to an array
         # mapfile -t list < $HOME/virtualenv-creator/data/virtualenvList.txt
@@ -72,7 +76,9 @@ list() {
 
         check_list
         if [ $? -eq 1 ]
+        then
             return
+        fi
 
         # read the text file again
         list=()
@@ -102,7 +108,7 @@ list() {
             return
         fi
 
-        printf "Enter 'a' to activate or 'd' to delete '${list[$number]}' (or press Enter to cancel) : "
+        printf "\nEnter 'a' to activate or 'd' to delete '${list[$number]}' (or press Enter to cancel) : "
         read input
 
         if [ "$input" = "a" ]

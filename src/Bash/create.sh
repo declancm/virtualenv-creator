@@ -28,7 +28,6 @@ create() {
         read selectedNumber
         selectedVersion=${list[selectedNumber]}
         mkdir -p $directory
-        printf "\nThe python virtualenv is being created...\n\n"
         virtualenv --python $selectedVersion $directory/$name >/dev/null
         if [ $? -eq 0 ]
         then
@@ -44,7 +43,7 @@ create() {
             fi
             while :
             do
-                printf "Enter the name of a library you would like to install (press Enter to skip) : "
+                printf "\nEnter the name of a library you would like to install (press Enter to skip) : "
                 read library
                 if [ "$library" != "" ]
                 then
@@ -58,16 +57,18 @@ create() {
                         else
                             pip='pip3'
                         fi
+                        printf "\nThe pip library is being installed ...\n\n"
                         $pip -q install $library
                         if [ $? -eq 0 ]
                         then
-                            printf "\nThe library installation was successfull.\n\n"
+                            printf "The library installation was successful.\n"
                         else
-                            printf "\nError: The library installation was unsuccessful.\n\n"
+                            printf "\nError: The library installation was unsuccessful.\n"
                         fi
                         deactivate
                     else
                         printf "\nError: The python virtualenv could not be activated.\n\n"
+                        return 1
                     fi
                 else
                     break
