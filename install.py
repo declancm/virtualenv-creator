@@ -8,8 +8,6 @@ def expandPath(path):
 
 def addAlias(alias, profileLocation):
     with open(profileLocation, 'a+', encoding='utf8') as profile:
-        profileContents = profile.read()
-        print("profile contents are: {}".format(profileContents))
         if os.path.getsize(profileLocation) == 0:
             profile.write(alias)
             exit("\nThe alias has been installed for '{}'.\n".format(shell))
