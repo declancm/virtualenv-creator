@@ -63,7 +63,7 @@ if shell == "Bash (Linux)":
 
 elif shell == "PowerShell (Windows)":
     profileLocation = expandPath('%USERPROFILE%\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1')
-    alias = "function runPyvenv { Invoke-Expression \"PowerShell.exe /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\\Documents\\virtualenv-creator\\PowerShell\\pyvenv.ps1\" }\n Set-Alias pyvenv runPyvenv"
+    alias = "function runPyvenv { Invoke-Expression \"PowerShell.exe /nologo -ExecutionPolicy Bypass -NoExit -File {}\\src\\PowerShell\\pyvenv.ps1\" }\n Set-Alias pyvenv runPyvenv".format(projectPath)
     addAlias(alias, profileLocation)
 
 else:
