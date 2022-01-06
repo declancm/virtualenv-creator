@@ -98,7 +98,7 @@ if($initialInput -eq 'c') {
       }
     } else {
       "`nA list file does not exit. Have you created a virtualenv?"
-        ""; Return
+      ""; Return
     }
     [string[]]$list = Get-Content -Path $virtualenvList
     $n = $list.Length - 1
