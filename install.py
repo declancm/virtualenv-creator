@@ -8,17 +8,17 @@ def expandPath(path):
 
 def addAlias(alias, profileLocation):
     with open(profileLocation, 'a+', encoding='utf8') as profile:
+        profile.seek(0)
         if os.path.getsize(profileLocation) == 0:
             profile.write(alias)
-            exit("\nThe alias has been installed for '{}'.\n".format(shell))
-        profile.seek(0)
-        if alias not in profile:
-            profile.write("\n{}".format(alias))
-            exit("\nThe alias has been installed for '{}'.\n".format(shell))
-        else:
             profile.close()
-            exit("\nThe alias has already been added for '{}'.\n".format(shell))
+            exit("\nThe alias has been installed for '{}'.\n".format(shell))
+        elif alias not in profile:
+            profile.write("\n{}".format(alias))
+            profile.close()
+            exit("\nThe alias has been installed for '{}'.\n".format(shell))
         profile.close()
+        exit("\nThe alias has already been added for '{}'.\n".format(shell))
 
 while True:
     shellList = ["Bash (Linux)", "PowerShell (Windows)"]
