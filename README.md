@@ -13,33 +13,29 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 
 ## Dependencies
 
-- python/python3
+<!-- need to test the program with different versions of python installed. -->
+- python3
 - pip/pip3
 - virtualenv
 
 ## Installation
 
-### Bash Installation (Linux and Mac)
+<!-- ### Bash Installation (Linux and Mac) -->
 
-1. Clone the git repo:
+1. Clone the git repo into desired directory:
 
    ```bash
    git clone https://github.com/declancm/virtualenv-creator.git ~/virtualenv-creator
    ```
 
-2. Make the script files executable:
+2. Run the install file:
 
    ```bash
-   chmod -R +x ~/virtualenv-creator
+   cd ~/virtualenv-creator
+   python3 install.py
    ```
 
-3. Run the installation script if you wish to add the alias to your .bashrc:
-
-   ```bash
-   . ~/virtualenv-creator/install-bash.sh
-   ```
-
-### PowerShell Installation (Windows)
+<!-- ### PowerShell Installation (Windows)
 
 1. Clone the git repo:
 
@@ -59,11 +55,13 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 
       ```powershell
       PowerShell.exe /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install-WindowsPS.ps1
-      ```
+      ``` -->
 
 ## Instructions
 
-### Bash Instructions (Linux and Mac)
+- Enter `pyvenv` into your shell to activate the program and follow the prompts.
+
+<!-- ### Bash Instructions (Linux and Mac)
 
 **If install.sh script was run:**
 
@@ -115,4 +113,4 @@ _Note: For Windows PowerShell (the old version), replace all instances of\
    function runPyvenv { Invoke-Expression "pwsh /nologo -ExecutionPolicy `
      Bypass -NoExit -File $HOME\Documents\virtualenv-creator\pyvenv-PS.ps1" }
    Set-Alias pyvenv runPyvenv
-   ```
+   ``` -->
