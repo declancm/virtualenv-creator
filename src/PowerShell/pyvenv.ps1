@@ -2,7 +2,7 @@
 # Git repository can be found at https://github.com/declancm/virtualenv-creator
 
 $projectPath = (Get-Item $PSCommandPath).Directory.Parent.Parent.FullName
-$listLocation = Joint-Path -Path $projectPath -ChildPath \data\Powershell\virtualenvList.txt
+$listLocation = Join-Path -Path $projectPath -ChildPath \data\Powershell\virtualenvList.txt
 "$listLocation"
 
 $initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs"
