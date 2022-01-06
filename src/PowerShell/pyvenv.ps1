@@ -43,7 +43,7 @@ if($initialInput -eq 'c') {
       # } else {
       #   Add-Content -Path $virtualenvList -Value "`n$directory\$name" -Force
       # }
-      $searchString = Select-String -Path $virtualenvList -Pattern "$directory\$name"
+      $searchString = Select-String -Path $virtualenvList -Pattern "$directory\$name" -SimpleMatch
       if ($null -eq $searchString) {
         Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
       }
