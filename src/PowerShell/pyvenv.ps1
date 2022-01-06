@@ -50,7 +50,7 @@ if($initialInput -eq 'c') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
           "`nThe pip library is being installed ...`n"
           try{
-            Invoke-Expression "py -m pip -q install $library"
+            py -m pip -q install $library
             "`nThe pip library '$library' was installed successfully.`n"
           } catch {
             "`nError: The pip library '$library' could not be installed.`n"
