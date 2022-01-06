@@ -32,13 +32,13 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 1. Clone the git repo into desired directory:
 
    ```bash
-   git clone https://github.com/declancm/virtualenv-creator.git ~/virtualenv-creator
+   git clone https://github.com/declancm/virtualenv-creator.git ~/your/desired/directory/virtualenv-creator
    ```
 
 2. Run the install file:
 
    ```bash
-   cd ~/virtualenv-creator
+   cd ~/your/desired/directory/virtualenv-creator
    python3 install.py
    ```
 
