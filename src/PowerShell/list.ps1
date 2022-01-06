@@ -1,4 +1,4 @@
-function Open-List{
+function Open-List {
   while($true) {
     if(Test-Path $virtualenvList) {
       if($Null -eq (Get-Content -Path $virtualenvList)) {
