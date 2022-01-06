@@ -33,13 +33,13 @@ create() {
         then
             if [ ! -e "~/virtualenv-creator/data/Bash/virtualenvList" ]
             then
-                touch ~/virtualenv-creator/data/Bash/virtualenvList.txt
+                touch $projectPath/data/Bash/virtualenvList.txt
             fi
-            if grep -Fxq "$directory/$name" ~/virtualenv-creator/data/Bash/virtualenvList.txt
+            if grep -Fxq "$directory/$name" $projectPath/data/Bash/virtualenvList.txt
             then
                 :
             else
-                printf "$directory/$name\n" >> ~/virtualenv-creator/data/Bash/virtualenvList.txt
+                printf "$directory/$name\n" >> $projectPath/data/Bash/virtualenvList.txt
             fi
             while :
             do
