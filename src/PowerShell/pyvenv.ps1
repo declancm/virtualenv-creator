@@ -5,15 +5,13 @@ $projectPath = (Get-Item $PSCommandPath).Directory.Parent.Parent.FullName
 $virtualenvList = Join-Path -Path $projectPath -ChildPath \data\Powershell\virtualenvList.txt
 
 $initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs"
-if(-Not (Test-Path -Path $virtualenvList -PathType Leaf)) {
-  New-Item -ItemType File -Path $virtualenvList | Out-Null
-}
+
 if($initialInput -eq 'c') {
   . "$projectPath\src\PowerShell\create.ps1"
   Enable-Create
 } elseif($initialInput -eq 'l') {
   . "$projectPath\src\PowerShell\list.ps1"
-  Open-List -ProjectPath $projectPath
+  Open-List -ListPath $virtualenvList
 } elseif($initialInput -eq '') {
   ""; Return
 } else {
