@@ -36,7 +36,6 @@ if($initialInput -eq 'c') {
       $version = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use"
       $python = $where[$version]
     }
-    "`nThe python virtual environment is being created..."
     $status = Invoke-Expression "virtualenv --python $python $directory\$name"
     if($status) {
       # if($Null -eq (Get-Content -Path $virtualenvList)) {
@@ -46,17 +45,23 @@ if($initialInput -eq 'c') {
       # }
       Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
       while($true) {
-        $libraries = Read-Host -Prompt "`nEnter the name of a library you would like to install (press Enter to skip) "
-        if($libraries -ne '') {
+        $library = Read-Host -Prompt "`nEnter the name of a library you would like to install (press Enter to skip) "
+        if($library -ne '') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
-          Invoke-Expression "py -m pip install $libraries"
+          "`nThe pip library is being installed ...`n"
+          try{
+            Invoke-Expression "py -m pip -q install $library"
+            "`nThe pip library '$library' was installed successfully.`n"
+          } catch {
+            "`nError: The pip library '$library' could not be installed.`n"
+          }
           Invoke-Expression 'deactivate'
         }
         else {
           break
         }
       }
-      $gitignore = Read-Host -Prompt "`nDo you want the virtualenv to be ignored by git? (y/n) "
+      $gitignore = Read-Host -Prompt "Do you want the virtualenv to be ignored by git? (y/n) "
       if ($gitignore -eq 'y' -or $gitignore -eq 'yes') {
         # Remove-Item -Path $directory\$name\.gitignore -Force -Confirm | Out-Null
         # New-Item -Path $directory\$name -Name .gitignore -Type "file" -Value "*" | Out-Null -and "A .gitignore file was created inside $name."
