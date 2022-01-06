@@ -1,6 +1,12 @@
 # Created by Declan Mullen
 # Git repository can be found at https://github.com/declancm/virtualenv-creator
 
+projectPath = $PSCommandPath
+"$projectPath"
+projectPath = $PSCommandPath/../..
+"$projectPath"
+
+
 $initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs"
 if(-Not (Test-Path -Path "$HOME\Documents\virtualenv-creator\data\PowerShell\virtualenvList.txt" -PathType Leaf)) {
   New-Item -ItemType File -Path $HOME\Documents\virtualenv-creator\data\PowerShell\virtualenvList.txt -Force | Out-Null
