@@ -23,7 +23,7 @@ def addAlias(alias, profileLocation):
         exit("\nThe alias has already been added for '{}'.\n".format(shell))
 
 while True:
-    shellList = ["Bash (Linux)", "ZSH", "PowerShell (Windows)"]
+    shellList = ["Bash (Linux)", "ZSH", "PowerShell (Windows)", "Windows PowerShell"]
     print("\nList of supported shells: \n")
     n = 0
     for item in shellList:
@@ -62,6 +62,12 @@ if shell == "ZSH":
 
 elif shell == "PowerShell (Windows)":
     profileLocation = expandPath('%USERPROFILE%\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1')
+    alias = "function runPyvenv {{ Invoke-Expression \"pwsh /nologo -ExecutionPolicy Bypass -NoExit -File {}\\src\\PowerShell\\pyvenv.ps1\" }}; Set-Alias pyvenv runPyvenv".format(projectPath)
+    addAlias(alias, profileLocation)
+    exit("\nPlease run '. $profile' to reload your terminal configuration and complete installation.\n")
+
+elif shell == "Windows PowerShell":
+    profileLocation = expandPath('%USERPROFILE%\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1')
     alias = "function runPyvenv {{ Invoke-Expression \"PowerShell.exe /nologo -ExecutionPolicy Bypass -NoExit -File {}\\src\\PowerShell\\pyvenv.ps1\" }}; Set-Alias pyvenv runPyvenv".format(projectPath)
     addAlias(alias, profileLocation)
     exit("\nPlease run '. $profile' to reload your terminal configuration and complete installation.\n")
