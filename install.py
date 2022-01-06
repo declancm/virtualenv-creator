@@ -6,8 +6,21 @@ def expandPath(path):
     path = os.path.abspath(path)
     return path
 
+def addAlias(alias, profileLocation):
+    with open(profileLocation, 'a+') as profile:
+        if os.path.getsize(profileLocation) == 0:
+            profile.write(alias)
+        profile.seek(0)
+        if alias not in profile:
+            profile.write("\n{}".format(alias))
+        else:
+            profile.close()
+            exit("\nThe alias has already been added for '{}'.\n".format(shell))
+        profile.close()
+    exit("\nThe alias has been installed for '{}'.\n".format(shell))
+
 while True:
-    shellList = ["Bash", "PowerShell"]
+    shellList = ["Bash (Linux)", "PowerShell (Windows)"]
     print("\nList of supported shells: \n")
     n = 0
     for item in shellList:
@@ -32,40 +45,28 @@ while True:
 
 projectPath = os.getcwd()
 
-if shell == "Bash":
-    bashrcLocation = expandPath('~/.bashrc')
-    bashAlias = "alias pyvenv='source {}/src/Bash/pyvenv.sh'".format(projectPath)
-    # if os.path.isfile('bashrcLocation') == False:
-    with open(bashrcLocation, 'a+') as bashrc:
-        if os.path.getsize(bashrcLocation) == 0:
-            bashrc.write(bashAlias)
-        bashrc.seek(0)
-        if bashAlias not in bashrc:
-            bashrc.write("\n{}".format(bashAlias))
-        else:
-            bashrc.close()
-            exit("\nThe alias has already been added for Bash.\n")
-        bashrc.close()
+if shell == "Bash (Linux)":
+    profileLocation = expandPath('~/.bashrc')
+    alias = "alias pyvenv='source {}/src/Bash/pyvenv.sh'".format(projectPath)
+    # with open(bashrcLocation, 'a+') as bashrc:
+    #     if os.path.getsize(bashrcLocation) == 0:
+    #         bashrc.write(bashAlias)
+    #     bashrc.seek(0)
+    #     if bashAlias not in bashrc:
+    #         bashrc.write("\n{}".format(bashAlias))
+    #     else:
+    #         bashrc.close()
+    #         exit("\nThe alias has already been added for Bash.\n")
+    #     bashrc.close()
+    addAlias(alias, profileLocation)
 
-elif shell == "PowerShell":
+elif shell == "PowerShell (Windows)":
     profileLocation = expandPath('%USERPROFILE%\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1')
-    "\nfunction runPyvenv { Invoke-Expression \"PowerShell.exe /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\\Documents\\virtualenv-creator\\pyvenv-PS.ps1\" }\nSet-Alias pyvenv runPyvenv"
+    print("path: {}".format(profileLocation))
+    alias = "\nfunction runPyvenv { Invoke-Expression \"PowerShell.exe /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\\Documents\\virtualenv-creator\\pyvenv-PS.ps1\" }\nSet-Alias pyvenv runPyvenv"
+    print("alias: {}".format(alias))
+    addAlias(alias, profileLocation)
 
 else:
     exit("\nError: A valid shell wasn't selected.\n")
-
-    # if os.path.isfile('bashrcLocation') == False:
-with open(profileLocation, 'a+') as profile:
-    if os.path.getsize(profileLocation) == 0:
-        profile.write(profile)
-    profile.seek(0)
-    if alias not in profile:
-        profile.write("\n{}".format(alias))
-    else:
-        profile.close()
-        exit("\nThe alias has already been added for Bash.\n")
-    profile.close()
-
-exit("\nThe alias has been installed for '{}'.\n".format(shell))
-
 
