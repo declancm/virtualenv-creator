@@ -3,7 +3,7 @@
 
 #!/bin/bash
 
-. $HOME/virtualenv-creator/src/Bash/create.sh
+. $projectPath/src/Bash/create.sh
 
 check_list() {
     # check if the file is exists?
@@ -43,7 +43,7 @@ check_list() {
 }
 
 list() {
-    virtualenvList=$HOME/virtualenv-creator/data/Bash/virtualenvList.txt
+    virtualenvList="$projectPath/data/Bash/virtualenvList.txt"
     while :
     do
         check_list
