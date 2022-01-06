@@ -49,11 +49,11 @@ if($initialInput -eq 'c') {
         if($library -ne '') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
           "`nThe pip library is being installed ...`n"
-          try{
-            py -m pip -q install $library
-            "`nThe pip library '$library' was installed successfully.`n"
-          } catch {
-            "`nError: The pip library '$library' could not be installed.`n"
+          $status = py -m pip -q install $library
+          if($?) {
+          "`nThe pip library '$library' was installed successfully.`n"
+          } else {
+          "`nError: The pip library '$library' could not be installed.`n"
           }
           Invoke-Expression 'deactivate'
         }
@@ -61,7 +61,7 @@ if($initialInput -eq 'c') {
           break
         }
       }
-      $gitignore = Read-Host -Prompt "Do you want the virtualenv to be ignored by git? (y/n) "
+      $gitignore = Read-Host -Prompt "`nDo you want the virtualenv to be ignored by git? (y/n) "
       if ($gitignore -eq 'y' -or $gitignore -eq 'yes') {
         # Remove-Item -Path $directory\$name\.gitignore -Force -Confirm | Out-Null
         # New-Item -Path $directory\$name -Name .gitignore -Type "file" -Value "*" | Out-Null -and "A .gitignore file was created inside $name."
