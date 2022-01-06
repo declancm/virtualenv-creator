@@ -6,9 +6,12 @@
 # $projectPath = $PSCommandPath\..\..
 # "$projectPath"
 
-$projectPath = Join-Path -Path $PSCommandPath -ChildPath '\..\..'
-$projectPath = New-Item -Path $projectPath
+$projectPath = (Get-Item $PSCommandPath).Directory.Parent.Parent.FullName
 "$projectPath"
+
+# $projectPath = Join-Path -Path $PSCommandPath -ChildPath '\..\..'
+# $projectPath = New-Item -Path $projectPath
+# "$projectPath"
 
 $initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs"
 if(-Not (Test-Path -Path "$HOME\Documents\virtualenv-creator\data\PowerShell\virtualenvList.txt" -PathType Leaf)) {
