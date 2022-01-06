@@ -18,7 +18,7 @@ if($initialInput -eq 'c') {
   }
   $name = Read-Host -Prompt "Enter the name of the python virtual environment"
   if(Test-Path -Path "$directory\$name" -PathType Container) {
-    "A folder already exists in that directory with that name.`n"
+    "`nError: A folder already exists in that directory with that name.`n"
   } else {
     # $where = Get-ChildItem -recursive -include "Python.exe"
     $where = where.exe Python
@@ -50,7 +50,8 @@ if($initialInput -eq 'c') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
           "`nThe pip library is being installed ...`n"
           # $Host.PrivateData.ErrorForegroundColor = 'white'
-          $status = py -m pip -q install $library
+          # $status = py -m pip -q install $library
+          py -m pip -q install $library
           if($?) {
           "The pip library '$library' was installed successfully."
           } else {
