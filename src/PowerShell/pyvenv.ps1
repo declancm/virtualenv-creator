@@ -43,7 +43,10 @@ if($initialInput -eq 'c') {
       # } else {
       #   Add-Content -Path $virtualenvList -Value "`n$directory\$name" -Force
       # }
-      Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
+      $searchString = Select-String -Path $virtualenvList -Pattern "$directory\$name"
+      if ($null -eq $searchString) {
+        Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
+      }
       while($true) {
         $library = Read-Host -Prompt "`nEnter the name of a pip library you would like to install (press Enter to skip) "
         if($library -ne '') {
