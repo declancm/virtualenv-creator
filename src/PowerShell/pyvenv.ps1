@@ -45,12 +45,10 @@ if($initialInput -eq 'c') {
       # }
       Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
       while($true) {
-        $library = Read-Host -Prompt "`nEnter the name of a library you would like to install (press Enter to skip) "
+        $library = Read-Host -Prompt "`nEnter the name of a pip library you would like to install (press Enter to skip) "
         if($library -ne '') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
           "`nThe pip library is being installed ...`n"
-          # $Host.PrivateData.ErrorForegroundColor = 'white'
-          # $status = py -m pip -q install $library
           py -m pip -q install $library
           if($?) {
           "The pip library '$library' was installed successfully."
@@ -85,7 +83,7 @@ if($initialInput -eq 'c') {
       "`nThe python virtualenv creation is complete.`n"
       # "The manual activation command:`n$directory\$name\Scripts\activate.ps1`n"
     } else {
-      "`nThe python virtual environment could not be created.`n"
+      "`nError: The python virtual environment could not be created.`n"
     }
   }
 } elseif($initialInput -eq 'l') {
