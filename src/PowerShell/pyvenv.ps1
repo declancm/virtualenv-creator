@@ -49,11 +49,12 @@ if($initialInput -eq 'c') {
         if($library -ne '') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
           "`nThe pip library is being installed ...`n"
+          # $Host.PrivateData.ErrorForegroundColor = 'white'
           $status = py -m pip -q install $library
           if($?) {
-          "`nThe pip library '$library' was installed successfully.`n"
+          "The pip library '$library' was installed successfully."
           } else {
-          "`nError: The pip library '$library' could not be installed.`n"
+          "`nError: The pip library '$library' could not be installed."
           }
           Invoke-Expression 'deactivate'
         }
