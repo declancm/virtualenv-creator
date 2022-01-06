@@ -7,6 +7,7 @@
 # "$projectPath"
 
 $projectPath = Join-Path -Path $PSCommandPath -ChildPath '\..\..'
+$projectPath = New-Item -Path $projectPath
 "$projectPath"
 
 $initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs"
