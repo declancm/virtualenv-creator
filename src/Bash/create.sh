@@ -76,12 +76,12 @@ create() {
             done
             printf "\nDo you want the virtualenv to be ignored by git? (y/n) "
             read gitignore
-            if [ "$gitignore" = "y" ] || [ "$gitignore" = "Y" ] || [ "$gitignore" = "yes" ] || [ "$gitignore" = "Yes" ]
+            if [ "$gitignore" = "y" ]
             then
                 # rm -f $directory\/$name/.gitignore
                 # touch -f $directory\/$name/.gitignore
                 # printf "*" $directory\/$name/.gitignore >/dev/null
-            elif [ "$gitignore" = "n" ] || [ "$gitignore" = "N" ] || [ "$gitignore" = "no" ] || [ "$gitignore" = "No" ]
+            elif [ "$gitignore" = "n" ]
             then
                 printf "The python virtualenv will not be ignored by git.\n"
                 rm -f $directory\/$name/.gitignore
@@ -91,10 +91,10 @@ create() {
             fi
             printf "\nDo you want to activate the python venv? (y/n) "
             read activate
-            if [ "$activate" = "y" ] || [ "$activate" = "Y" ] || [ "$activate" = "yes" ] || [ "$activate" = "Yes" ]
+            if [ "$activate" = "y" ]
             then
                 . $directory\/$name/bin/activate
-            elif [ "$activate" = "n" ] || [ "$activate" = "N" ] || [ "$activate" = "no" ] || [ "$activate" = "No" ]
+            elif [ "$activate" = "n" ]
             then
                 printf "The python virtualenv will not be activated.\n"
             else

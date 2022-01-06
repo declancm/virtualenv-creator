@@ -3,11 +3,14 @@
 
 #!/bin/bash
 
-# projectPath="$(realpath "$(dirname "$BASH_SOURCE")")"
-projectPath="$(dirname "$BASH_SOURCE")"
-cd $projectPath
+# projectPath="$(realpath "$(dirname "$0")")"
+projectPath="$(dirname "$0")"
+cd $projectPath/../..
 projectPath=$(pwd)
 cd $OLDPWD
+# printf "BASH_SOURCE: $(dirname "${BASH_SOURCE}")"
+
+# printf "projectPath is: $projectPath"
 
 printf "\nEnter 'c' to create a python virtualenv or 'l' to see a list of created virtualenvs: "
 read input
