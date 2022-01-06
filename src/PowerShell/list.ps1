@@ -1,5 +1,5 @@
 function Open-List {
-  "List function."
+  $virtualenvList = Join-Path $projectPath \data\PowerShell\virtualenvList.txt
   while($true) {
     if(Test-Path $virtualenvList) {
       if($Null -eq (Get-Content -Path $virtualenvList)) {
