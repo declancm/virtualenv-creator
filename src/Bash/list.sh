@@ -17,10 +17,10 @@ check_list() {
         elif [ "$createVirtualenv" = "n" ]
         then
             printf "\n"
-            return
+            return 1
         else
             printf "\nError: You did not enter a valid option.\n\n"
-            return
+            return 1
         fi
     elif [ ! -s $virtualenvList ]
     then
@@ -32,10 +32,10 @@ check_list() {
         elif [ "$createVirtualenv" = "n" ]
         then
             printf "\n"
-            return
+            return 1
         else
             printf "\nError: You did not enter a valid option.\n\n"
-            return
+            return 1
         fi
     fi
 }
@@ -45,6 +45,8 @@ list() {
     while :
     do
         check_list
+        if [ $? -eq 1 ]
+            return
 
         # add each line to an array
         # mapfile -t list < $HOME/virtualenv-creator/data/virtualenvList.txt
@@ -62,7 +64,6 @@ list() {
             then
                 # remove the deleted virtualenv from the list
                 sed -i "$n d" $virtualenvList
-                printf "item does not exist."
             fi
             # the list is incremented backwards to ensure the element positions are correct
             n=$((n - 1))
@@ -70,6 +71,8 @@ list() {
         done
 
         check_list
+        if [ $? -eq 1 ]
+            return
 
         # read the text file again
         list=()

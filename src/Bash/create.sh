@@ -20,7 +20,8 @@ create() {
         listNumber=1
         for listItem in "${list[@]}"
         do
-            printf "    $listNumber.   $listItem\n"
+            strippedItem=$(basename $listItem)
+            printf "    $listNumber.   $strippedItem\n"
             ((listNumber++))
         done
         printf "\nEnter the list number of the python version you would like to use: "
@@ -44,10 +45,10 @@ create() {
             while :
             do
                 printf "Enter the name of a library you would like to install (press Enter to skip) : "
-                read libraries
+                read library
                 if [ "$library" != "" ]
                 then
-                    source $directory\/$name/bin/activate
+                    . $directory\/$name/bin/activate
                     if [ $? -eq 0 ]
                     then
                         strippedName=$(basename $selectedVersion)
@@ -57,7 +58,7 @@ create() {
                         else
                             pip='pip3'
                         fi
-                        $pip install $library
+                        $pip -q install $library
                         if [ $? -eq 0 ]
                         then
                             printf "\nThe library installation was successfull.\n\n"
@@ -91,7 +92,7 @@ create() {
             read activate
             if [ "$activate" = "y" ] || [ "$activate" = "Y" ] || [ "$activate" = "yes" ] || [ "$activate" = "Yes" ]
             then
-                source $directory\/$name/bin/activate
+                . $directory\/$name/bin/activate
             elif [ "$activate" = "n" ] || [ "$activate" = "N" ] || [ "$activate" = "no" ] || [ "$activate" = "No" ]
             then
                 printf "The python virtualenv will not be activated.\n"
@@ -114,4 +115,5 @@ create() {
             printf "\nError: The python virtualenv could not be created.\n\n"
         fi
     fi
+    return
 }

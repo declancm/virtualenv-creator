@@ -16,5 +16,4 @@ then
 else
     printf "\nError: You did not enter a valid input.\n\n"
 fi
-
 return
