@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 def expandPath(path):
     path = os.path.expandvars(path)
@@ -51,12 +52,16 @@ projectPath = os.getcwd()
 if shell == "Bash (Linux)":
     profileLocation = expandPath('~/.bashrc')
     alias = "alias pyvenv='source {}/src/Bash/pyvenv.sh'".format(projectPath)
+    # set chmod +x
+    subprocess.run("chmod -R +x {}".format(projectPath), shell=True)
     addAlias(alias, profileLocation)
     exit("\nPlease run '. ~/.bashrc' to refresh your terminal configuration and complete installation.\n")
 
 if shell == "ZSH":
     profileLocation = expandPath('~/.zshrc')
     alias = "alias pyvenv='source {}/src/Bash/pyvenv.sh'".format(projectPath)
+    # set chmod +x
+    subprocess.run("chmod -R +x {}".format(projectPath), shell=True)
     addAlias(alias, profileLocation)
     exit("\nPlease run '. ~/.zshrc' to reload your terminal configuration and complete installation.\n")
 
