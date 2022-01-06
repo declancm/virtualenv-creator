@@ -7,7 +7,9 @@ def expandPath(path):
     return path
 
 def addAlias(alias, profileLocation):
-    with open(profileLocation, 'a+') as profile:
+    with open(profileLocation, 'a+', encoding='utf8') as profile:
+        profileContents = profile.read()
+        print("profile contents are: {}".format(profileContents))
         if os.path.getsize(profileLocation) == 0:
             profile.write(alias)
         profile.seek(0)
@@ -62,7 +64,7 @@ if shell == "Bash (Linux)":
 
 elif shell == "PowerShell (Windows)":
     profileLocation = expandPath('%USERPROFILE%\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1')
-    alias = "\nfunction runPyvenv { Invoke-Expression \"PowerShell.exe /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\\Documents\\virtualenv-creator\\pyvenv-PS.ps1\" }; Set-Alias pyvenv runPyvenv"
+    alias = "\nfunction runPyvenv { Invoke-Expression \"PowerShell.exe /nologo -ExecutionPolicy Bypass -NoExit -File $HOME\\Documents\\virtualenv-creator\\PowerShell\\pyvenv.ps1\" }; Set-Alias pyvenv runPyvenv"
     addAlias(alias, profileLocation)
 
 else:
