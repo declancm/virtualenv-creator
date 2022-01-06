@@ -13,7 +13,7 @@ if($initialInput -eq 'c') {
   Enable-Create
 } elseif($initialInput -eq 'l') {
   . "$projectPath\src\PowerShell\list.ps1"
-  Open-List
+  Open-List -ProjectPath $projectPath
 } elseif($initialInput -eq '') {
   ""; Return
 } else {

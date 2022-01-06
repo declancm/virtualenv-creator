@@ -1,5 +1,8 @@
 function Open-List {
-  $virtualenvList = Join-Path -Path $projectPath -ChildPath '\data\PowerShell\virtualenvList.txt'
+  Param(
+  [Parameter()] [Path]$ProjectPath
+  )
+  $virtualenvList = Join-Path -Path $ProjectPath -ChildPath "\data\PowerShell\virtualenvList.txt"
   while($true) {
     if(Test-Path $virtualenvList) {
       if($Null -eq (Get-Content -Path $virtualenvList)) {
