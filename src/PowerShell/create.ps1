@@ -19,7 +19,7 @@ function Enable-Create {
     # $where = Get-ChildItem -recursive -include "Python.exe"
     # ignore exe with \Scripts\python.exe
     # $where = @()
-    $where = System.Collections.Generic.List[String] where.exe Python
+    $where = System.Collections.Generic.List[Str] where.exe Python
     # foreach ($item in $where) {
     #   if $item.contains('\scripts\python.exe') {
     #     del $where[]
