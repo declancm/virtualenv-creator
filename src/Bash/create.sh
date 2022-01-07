@@ -43,7 +43,7 @@ create() {
             fi
             while :
             do
-                printf "\nEnter the name of a library you would like to install (press Enter to skip) : "
+                printf "\nEnter the name of a library you would like to install (press Enter to skip): "
                 read library
                 if [ "$library" != "" ]
                 then
@@ -74,7 +74,7 @@ create() {
                     break
                 fi
             done
-            printf "\nDo you want the virtualenv to be ignored by git? (y/n) "
+            printf "\nDo you want the virtualenv to be ignored by git? (y/n): "
             read gitignore
             if [ "$gitignore" = "y" ]
             then
@@ -89,7 +89,7 @@ create() {
                 printf "You did not enter a valid answer. The python virtualenv will not be ignored by git.\n"
                 rm -f $directory\/$name/.gitignore
             fi
-            printf "\nDo you want to activate the python venv? (y/n) "
+            printf "\nDo you want to activate the python venv? (y/n): "
             read activate
             if [ "$activate" = "y" ]
             then

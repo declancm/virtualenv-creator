@@ -9,7 +9,7 @@ check_list() {
     # check if the file is exists?
     if [ ! -e "$virtualenvList" ]
     then
-        printf "\nA list file does not exist. Do you want to create a virtualenv? (y/n) : "
+        printf "\nA list file does not exist. Do you want to create a virtualenv? (y/n): "
         read createVirtualenv
         if [ "$createVirtualenv" = "y" ]
         then
@@ -24,7 +24,7 @@ check_list() {
         fi
     elif [ ! -s $virtualenvList ]
     then
-        printf "\nThe list file is empty. Do you want to create a virtualenv? (y/n) : "
+        printf "\nThe list file is empty. Do you want to create a virtualenv? (y/n): "
         read createVirtualenv
         if [ "$createVirtualenv" = "y" ]
         then
@@ -86,7 +86,7 @@ list() {
             list+=("$line")
         done < $virtualenvList
 
-        printf "\nA list of your created python virtualenvs :\n\n"
+        printf "\nA list of your created python virtualenvs:\n\n"
 
         # display a list of the virtual envs
         currentLine=${list[1]}
@@ -98,7 +98,7 @@ list() {
             currentLine=${list[$n]}
         done
 
-        printf "\nTo select a virtualenv enter the list number (or press Enter to exit) : "
+        printf "\nTo select a virtualenv enter the list number (or press Enter to exit): "
         read number
 
         # exit on blank input
@@ -108,7 +108,7 @@ list() {
             return
         fi
 
-        printf "\nEnter 'a' to activate or 'd' to delete '${list[$number]}' (or press Enter to cancel) : "
+        printf "\nEnter 'a' to activate or 'd' to delete '${list[$number]}' (or press Enter to cancel): "
         read input
 
         if [ "$input" = "a" ]
@@ -116,7 +116,7 @@ list() {
             source ${list[$number]}/bin/activate
         elif [ "$input" = "d" ]
         then
-            printf "Are you sure you want to delete '${list[$number]}'? (y/n) : "
+            printf "Are you sure you want to delete '${list[$number]}'? (y/n): "
             read delete
             if [ "$delete" = "y" ]
             then
