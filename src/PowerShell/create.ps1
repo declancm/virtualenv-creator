@@ -1,4 +1,10 @@
 function Enable-Create {
+  param (
+    [Parameter(Mandatory = $true, Position = 0)] [Object]$ProjectPath
+  )
+
+  $virtualenvList = Join-Path -Path $ProjectPath -ChildPath '\data\Powershell\virtualenvList.txt'
+
   $directoryString = Read-Host -Prompt "`nEnter the directory path where the python virtual environment will be installed"
   if(Test-Path $directoryString) {
     $directory = Get-Item $directoryString
@@ -7,6 +13,7 @@ function Enable-Create {
     $directory = Get-Item $directoryString
   }
   $name = Read-Host -Prompt "Enter the name of the python virtual environment"
+  "The virtualenv is: $directory\$name"
   if(Test-Path -Path "$directory\$name" -PathType Container) {
     "`nError: A folder already exists in that directory with that name.`n"
   } else {
@@ -27,7 +34,7 @@ function Enable-Create {
       $python = $where[$version]
     }
     $status = Invoke-Expression "virtualenv --python $python $directory\$name"
-    if($status) {
+    if ($status) {
       # if($Null -eq (Get-Content -Path $virtualenvList)) {
       #   Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
       # } else {
