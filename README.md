@@ -38,12 +38,9 @@ _(in development)_
 ## Dependencies
 
 <!-- need to test the program with different versions of python installed. -->
-- python3.9 (or newer)
+- python3.5+
 - pip/pip3
 - virtualenv
-
-_Note: python3.9 is the version used for testing but the installation may work\
-with older versions._
 
 ## Installation
 
