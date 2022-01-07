@@ -30,7 +30,7 @@ function Open-List {
       elseif ($createVirtualenv -eq 'n') {
         ""; Return
       }
-      "`nError: That was not a valid input.`n"; Return
+      "`nError: You did not enter a valid input.`n"; Return
     }
 
   while($true) {
@@ -57,7 +57,7 @@ function Open-List {
         elseif ($createVirtualenv -eq 'n') {
           ""; Return
         }
-        "`nError: That was not a valid input.`n"; Return
+        "`nError: You did not enter a valid input.`n"; Return
       }
 
     [string[]]$list = Get-Content -Path $virtualenvList
@@ -95,6 +95,6 @@ function Open-List {
       }
     }
     elseif($userInput -eq '') { continue }
-    else { "`nError: You did not enter a valid option." }
+    else { "`nError: You did not enter a valid input." }
   }
 }

@@ -43,6 +43,7 @@ create() {
             fi
             if [ -e "$projectPath/libraries.txt" ]
             then
+                # have a condition for if the file is empty
                 printf "\nA libraries.txt file was found. Do you want to install the contents into the virtualenv? (y/n): "
                 read installLibraries
                 if [ $installLibraries = 'y' ]
@@ -78,7 +79,7 @@ create() {
                             currentLibrary=$libraries[$n]
                         done
                         deactivate
-                        printf "\nThe libraries.txt installation is complete.\n\n"
+                        printf "\nThe libraries.txt installation is complete.\n"
                     else
                         printf "\nError: The virtualenv could not be activated.\n\n"
                         return 1

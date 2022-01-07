@@ -74,13 +74,27 @@ function Enable-Create {
       if ($null -eq $searchString) {
         Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
       }
+      $librariestxt = Join-Path $ProjectPath '\libraries.txt'
+      if (Test-Path -Path $librariestxt -PathType Leaf) {
+        # check condition that the file is empty
+        $installLibraries = Read-Host -Prompt "`n A libraries.txt file was found. Do you want to install the contents into the virtualenv? (y/n)"
+        if ($installLibries -eq 'y'){
+          #read file into array
+        }
+        elseif ($installLibraries -eq 'n') {
+          "The libraries.txt will not be installed."
+        }
+        else {
+          "`nError: You did not enter a valid input. The libraries.txt will not be installed."
+        }
+      }
       while($true) {
         $library = Read-Host -Prompt "`nEnter the name of a pip library you would like to install (press Enter to skip)"
-        if($library -ne '') {
+        if ($library -ne '') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
           "`nThe pip library is being installed ...`n"
           py -m pip -q install $library
-          if($?) {
+          if ($?) {
             "The pip library '$library' was installed successfully."
           } else {
             "`nError: The pip library '$library' could not be installed."
@@ -100,7 +114,7 @@ function Enable-Create {
         "The python virtualenv will not be ignored by git."
       } else {
         Remove-Item -Path $directory\$name\.gitignore -Force -Confirm:$false | Out-Null
-        "You did not enter a valid answer. The python virtualenv will not be ignored by git."
+        "You did not enter a valid input. The python virtualenv will not be ignored by git."
       }
       $activate = Read-Host -Prompt "`nDo you want to activate the python venv? (y/n)"
       if ($activate -eq 'y' -or $activate -eq 'yes') {
@@ -108,7 +122,7 @@ function Enable-Create {
       } elseif ($activate -eq 'n' -or $activate -eq 'no') {
         "The python virtualenv will not be activated."
       } else {
-        "You did not enter a valid answer. The python virtualenv will not be activated."
+        "You did not enter a valid input. The python virtualenv will not be activated."
       }
       "`nThe python virtualenv creation is complete.`n"
       # "The manual activation command:`n$directory\$name\Scripts\activate.ps1`n"
