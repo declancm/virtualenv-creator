@@ -21,11 +21,12 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 ## Dependencies
 
 <!-- need to test the program with different versions of python installed. -->
-- python3.9
+- python3.9 (or newer)
 - pip/pip3
 - virtualenv
 
-_Note: python3.9 is the version used for all the testing but the installation may work with older versions._
+_Note: python3.9 is the version used for testing but the installation may work\
+with older versions._
 
 ## Installation
 
@@ -67,7 +68,7 @@ _Note: python3.9 is the version used for all the testing but the installation ma
 
 ## Instructions
 
-- Enter `pyvenv` into your shell to activate the program and follow the prompts.
+- Enter `pyvenv` into your shell to activate the program and then follow the prompts.
 
 <!-- ### Bash Instructions (Linux and Mac)
 
