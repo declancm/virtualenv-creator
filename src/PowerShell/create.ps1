@@ -1,3 +1,10 @@
+function Remove-VenvPaths {
+  param (
+    [Parameter(Mandatory = $true, Position = 0)] [Object]$array
+  )
+
+
+}
 function Enable-Create {
   param (
     [Parameter(Mandatory = $true, Position = 0)] [Object]$ProjectPath
@@ -17,14 +24,22 @@ function Enable-Create {
     "`nError: A folder already exists in that directory with that name.`n"
   } else {
     # $where = Get-ChildItem -recursive -include "Python.exe"
+
     # ignore exe with \Scripts\python.exe
-    # $where = @()
-    $where = System.Collections.Generic.List[Str] where.exe Python
-    # foreach ($item in $where) {
-    #   if $item.contains('\scripts\python.exe') {
-    #     del $where[]
-    #   }
-    # }
+    # $where = @(where.exe Python)
+
+    [System.Collections.ArrayList]$where = @(where.exe Python)
+    $n = $where.Count - 1
+    $currentLine = $where[$n]
+    while ($Null -ne $currentLine) {
+      #delete line if it doesn't exist
+      if ($currentLine.contains('\Scripts.python.exe')) {
+        $where.Remove($n)
+      }
+      $n--
+      $currentLine = $where[$n]
+    }
+
     $number = 0
     "`nThe installed python.exe versions:`n"
     while (($where[$number]) -and ($where[$number] -ne 'C') ) {
