@@ -37,7 +37,6 @@ _(in development)_
 
 ## Dependencies
 
-<!-- need to test the program with different versions of python installed. -->
 - python3.5+
 - pip/pip3
 - virtualenv
