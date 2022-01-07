@@ -75,7 +75,8 @@ function Open-List {
     $userInput = Read-Host -Prompt "`nEnter 'a' to activate or 'd' to delete '$selectedLine' (or press Enter to cancel): "
     if($userInput -eq 'a') {
       Invoke-Expression "$selectedLine\Scripts\activate.ps1"
-      "The virtualenv was activated."
+      "The virtualenv was activated.`n"
+      Return
     }
     elseif($userInput -eq 'd') {
       $delete = Read-Host -Prompt "Are you sure you want to delete '$selectedLine'? (y/n): "
