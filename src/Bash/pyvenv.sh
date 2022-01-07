@@ -5,6 +5,7 @@
 
 # projectPath="$(realpath "$(dirname "$0")")"
 projectPath="$(dirname "$0")"
+# projectPath="$(dirname "$(realpath "$0")")"
 cd $projectPath/../..
 projectPath=$(pwd)
 cd $OLDPWD

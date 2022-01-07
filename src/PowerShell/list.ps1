@@ -1,3 +1,6 @@
+# Created by Declan Mullen
+# Git repository can be found at git://github.com/declancm/virtualenv-creator
+
 function Open-List {
   param (
   [Parameter(Mandatory = $true, Position = 0)] [Object]$ProjectPath

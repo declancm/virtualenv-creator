@@ -19,9 +19,20 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 
 ## Supported Shells
 
-- Bash (Linux)
+### Linux
+
+- Bash
 - ZSH
-- PowerShell (Windows)
+
+### Mac OS
+
+_(in development)_
+<!-- - Bash
+- ZSH -->
+
+### Windows
+
+- PowerShell
 - Windows PowerShell
 
 ## Dependencies
