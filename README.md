@@ -7,6 +7,10 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 - gives a list of all the virtualenvs created with this tool which the user can\
   select from and either activate or delete.
 
+<!-- ## PowerShell Demo Video
+
+<https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-a398-cee993c00f5e.mp4> -->
+
 ## Supported Shells
 
 - Bash (Linux)
@@ -14,16 +18,14 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 - PowerShell (Windows)
 - Windows PowerShell
 
-<!-- ## PowerShell Demo Video
-
-<https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-a398-cee993c00f5e.mp4> -->
-
 ## Dependencies
 
 <!-- need to test the program with different versions of python installed. -->
-- python3
+- python3.9
 - pip/pip3
 - virtualenv
+
+_Note: python3.9 is the version used for all the testing but the installation may work with older versions._
 
 ## Installation
 
@@ -31,14 +33,13 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 
 1. Clone the git repo into desired directory:
 
-   ```bash
-   git clone https://github.com/declancm/virtualenv-creator.git ~/your/desired/directory/virtualenv-creator
+   ```PowerShell
+   git clone https://github.com/declancm/virtualenv-creator.git
    ```
 
 2. Run the install file:
 
-   ```bash
-   cd ~/your/desired/directory/virtualenv-creator
+   ```PowerShell
    python3 install.py
    ```
 
