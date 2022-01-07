@@ -114,6 +114,7 @@ list() {
         if [ "$input" = "a" ]
         then
             source ${list[$number]}/bin/activate
+            "\n"; return
         elif [ "$input" = "d" ]
         then
             printf "Are you sure you want to delete '${list[$number]}'? (y/n): "
