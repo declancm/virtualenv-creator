@@ -17,7 +17,14 @@ function Enable-Create {
     "`nError: A folder already exists in that directory with that name.`n"
   } else {
     # $where = Get-ChildItem -recursive -include "Python.exe"
-    $where = where.exe Python
+    # ignore exe with \Scripts\python.exe
+    # $where = @()
+    $where = System.Collections.Generic.List[String] where.exe Python
+    # foreach ($item in $where) {
+    #   if $item.contains('\scripts\python.exe') {
+    #     del $where[]
+    #   }
+    # }
     $number = 0
     "`nThe installed python.exe versions:`n"
     while (($where[$number]) -and ($where[$number] -ne 'C') ) {
