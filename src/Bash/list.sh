@@ -20,7 +20,7 @@ check_list() {
             printf "\n"
             return 1
         else
-            printf "\nError: You did not enter a valid option.\n\n"
+            printf "\nError: You did not enter a valid input.\n\n"
             return 1
         fi
     elif [ ! -s $virtualenvList ]
@@ -36,7 +36,7 @@ check_list() {
             printf "\n"
             return 1
         else
-            printf "\nError: You did not enter a valid option.\n\n"
+            printf "\nError: You did not enter a valid input.\n\n"
             return 1
         fi
     else
@@ -132,7 +132,7 @@ list() {
         then
             continue
         else
-            printf "\nError: You did not enter a valid option.\n\n"
+            printf "\nError: You did not enter a valid input.\n\n"
         fi
     done
 }
