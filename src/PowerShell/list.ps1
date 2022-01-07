@@ -83,8 +83,10 @@ function Open-List {
       if($delete -eq 'y') {
         Remove-Item -Path $selectedLine -Force -Recurse | Out-Null
         "The virtualenv was deleted."
+        Open-List -ProjectPath $ProjectPath
       } else {
         "The virtualenv was not deleted."
+        Open-List -ProjectPath $ProjectPath
       }
     }
     elseif($userInput -eq '') { continue }
