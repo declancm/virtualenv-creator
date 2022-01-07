@@ -3,13 +3,11 @@
 
 #!/bin/bash
 
-# projectPath="$(realpath "$(dirname "$0")")"
 projectPath="$(dirname "$0")"
 # projectPath="$(dirname "$(realpath "$0")")"
 cd $projectPath/../..
 projectPath=$(pwd)
 cd $OLDPWD
-# printf "BASH_SOURCE: $(dirname "${BASH_SOURCE}")"
 
 # printf "projectPath is: $projectPath"
 

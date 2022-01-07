@@ -44,17 +44,20 @@ function Enable-Create {
     }
 
     $number = 0
+    $numberPlus = 1
     "`nThe installed python.exe versions:`n"
     while (($where[$number]) -and ($where[$number] -ne 'C') ) {
       $current = $where[$number]
-      "    $number.   $current"
+      "    $numberPlus.   $current"
       $number = $number + 1
+      $numberPlus = $numberPlus + 1
     }
     if ($where[$number] -eq 'C') {
-      Read-Host -Prompt "    0.   $where`n`nOnly one version of python is installed (press Enter to continue)"
+      Read-Host -Prompt "    1.   $where`n`nOnly one version of python is installed (press Enter to continue)"
       $python = $where
     } else {
-      $version = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use"
+      $versionPlus = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use"
+      $version = $versionPlus - 1
       $python = $where[$version]
     }
     $status = Invoke-Expression "virtualenv --python $python $directory\$name"

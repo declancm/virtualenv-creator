@@ -14,6 +14,7 @@ check_list() {
         if [ "$createVirtualenv" = "y" ]
         then
             create
+            return 1
         elif [ "$createVirtualenv" = "n" ]
         then
             printf "\n"
@@ -29,6 +30,7 @@ check_list() {
         if [ "$createVirtualenv" = "y" ]
         then
             create
+            return 1
         elif [ "$createVirtualenv" = "n" ]
         then
             printf "\n"
