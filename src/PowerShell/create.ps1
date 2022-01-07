@@ -33,7 +33,7 @@ function Enable-Create {
     $currentLine = $where[$n]
     while ($Null -ne $currentLine) {
       #delete line if it doesn't exist
-      if ($currentLine.contains('\Scripts.python.exe')) {
+      if ($currentLine.Contains('\Scripts\python.exe')) {
         $where.Remove($n)
       }
       $n--
