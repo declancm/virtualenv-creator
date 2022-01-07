@@ -5,14 +5,14 @@ function Enable-Create {
 
   $virtualenvList = Join-Path -Path $ProjectPath -ChildPath '\data\Powershell\virtualenvList.txt'
 
-  $directoryString = Read-Host -Prompt "`nEnter the directory path where the python virtual environment will be installed: "
+  $directoryString = Read-Host -Prompt "`nEnter the directory path where the python virtual environment will be installed"
   if(Test-Path $directoryString) {
     $directory = Get-Item $directoryString
   } else {
     New-Item $directoryString -ItemType Directory | Out-Null
     $directory = Get-Item $directoryString
   }
-  $name = Read-Host -Prompt "Enter the name of the python virtual environment: "
+  $name = Read-Host -Prompt "Enter the name of the python virtual environment"
   if(Test-Path -Path "$directory\$name" -PathType Container) {
     "`nError: A folder already exists in that directory with that name.`n"
   } else {
@@ -26,10 +26,10 @@ function Enable-Create {
       $number = $number + 1
     }
     if ($where[$number] -eq 'C') {
-      Read-Host -Prompt "    0.   $where`n`nOnly one version of python is installed (press Enter to continue): "
+      Read-Host -Prompt "    0.   $where`n`nOnly one version of python is installed (press Enter to continue)"
       $python = $where
     } else {
-      $version = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use:"
+      $version = Read-Host -Prompt "`nEnter the list number of the python.exe you would like to use"
       $python = $where[$version]
     }
     $status = Invoke-Expression "virtualenv --python $python $directory\$name"
@@ -47,7 +47,7 @@ function Enable-Create {
         Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
       }
       while($true) {
-        $library = Read-Host -Prompt "`nEnter the name of a pip library you would like to install (press Enter to skip): "
+        $library = Read-Host -Prompt "`nEnter the name of a pip library you would like to install (press Enter to skip)"
         if($library -ne '') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
           "`nThe pip library is being installed ...`n"
@@ -63,7 +63,7 @@ function Enable-Create {
           break
         }
       }
-      $gitignore = Read-Host -Prompt "`nDo you want the virtualenv to be ignored by git? (y/n): "
+      $gitignore = Read-Host -Prompt "`nDo you want the virtualenv to be ignored by git? (y/n)"
       if ($gitignore -eq 'y' -or $gitignore -eq 'yes') {
         # Remove-Item -Path $directory\$name\.gitignore -Force -Confirm | Out-Null
         # New-Item -Path $directory\$name -Name .gitignore -Type "file" -Value "*" | Out-Null -and "A .gitignore file was created inside $name."
@@ -74,7 +74,7 @@ function Enable-Create {
         Remove-Item -Path $directory\$name\.gitignore -Force -Confirm:$false | Out-Null
         "You did not enter a valid answer. The python virtualenv will not be ignored by git."
       }
-      $activate = Read-Host -Prompt "`nDo you want to activate the python venv? (y/n): "
+      $activate = Read-Host -Prompt "`nDo you want to activate the python venv? (y/n)"
       if ($activate -eq 'y' -or $activate -eq 'yes') {
         Invoke-Expression "$directory\$name\Scripts\activate.ps1"
       } elseif ($activate -eq 'n' -or $activate -eq 'no') {
