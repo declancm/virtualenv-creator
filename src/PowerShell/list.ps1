@@ -1,34 +1,3 @@
-. "$ProjectPath\src\PowerShell\create.ps1"
-
-function Test-List {
-  param (
-    [Parameter(Mandatory = $true, Position = 0)] [Object]$ProjectPath
-  )
-
-  $virtualenvList = Join-Path -Path $ProjectPath -ChildPath '\data\Powershell\virtualenvList.txt'
-
-  if(Test-Path $virtualenvList) {
-    if($Null -eq (Get-Content -Path $virtualenvList)) {
-      $createVirtualenv = Read-Host -Prompt "`nThe list file is empty. Do you want to create a virtualenv? (y/n) "
-      if ($createVirtualenv -eq 'y') {
-        Enable-Create -ProjectPath $ProjectPath
-      } elseif ($createVirtualenv -eq 'n') {
-        Return ""
-      }
-      Return "`nError: That was not a valid input.`n"
-    }
-    Return 0
-  } else {
-    $createVirtualenv = Read-Host -Prompt "`nA list file does not exist. Do you want to create a virtualenv? (y/n) "
-      if ($createVirtualenv -eq 'y') {
-        Enable-Create -ProjectPath $ProjectPath
-      } elseif ($createVirtualenv -eq 'n') {
-        Return ""
-      }
-      Return "`nError: That was not a valid input.`n"
-  }
-}
-
 function Open-List {
   param (
   [Parameter(Mandatory = $true, Position = 0)] [Object]$ProjectPath
@@ -36,13 +5,30 @@ function Open-List {
 
   $virtualenvList = Join-Path -Path $ProjectPath -ChildPath '\data\Powershell\virtualenvList.txt'
 
-  Test-List -ProjectPath $ProjectPath
-  if ($?) {Return}
-  # if ($testListStatus -eq 'Quit') { ""; Return }
-  # if ($testListStatus -eq 'InputError') {
-  #   "`nError: You did not enter a valid input.`n"
-  #   Return
-  # }
+  if (Test-Path $virtualenvList) {
+      if ($Null -eq (Get-Content -Path $virtualenvList)) {
+        $createVirtualenv = Read-Host -Prompt "`nThe list file is empty. Do you want to create a virtualenv? (y/n) "
+        if ($createVirtualenv -eq 'y') {
+          . "$ProjectPath\src\PowerShell\create.ps1"
+          Enable-Create -ProjectPath $ProjectPath
+        }
+        elseif ($createVirtualenv -eq 'n') {
+          ""; Return
+        }
+        "`nError: That was not a valid input.`n"; Return
+      }
+    }
+    else {
+      $createVirtualenv = Read-Host -Prompt "`nA list file does not exist. Do you want to create a virtualenv? (y/n) "
+      if ($createVirtualenv -eq 'y') {
+        . "$ProjectPath\src\PowerShell\create.ps1"
+        Enable-Create -ProjectPath $ProjectPath
+      }
+      elseif ($createVirtualenv -eq 'n') {
+        ""; Return
+      }
+      "`nError: That was not a valid input.`n"; Return
+    }
 
   while($true) {
     [string[]]$list = Get-Content -Path $virtualenvList
@@ -59,8 +45,17 @@ function Open-List {
       $currentLine = $list[$n]
     }
 
-    Test-List -ProjectPath $ProjectPath
-    if ($?) { Return }
+    if ($Null -eq (Get-Content -Path $virtualenvList)) {
+        $createVirtualenv = Read-Host -Prompt "`nThe list file is empty. Do you want to create a virtualenv? (y/n) "
+        if ($createVirtualenv -eq 'y') {
+          . "$ProjectPath\src\PowerShell\create.ps1"
+          Enable-Create -ProjectPath $ProjectPath
+        }
+        elseif ($createVirtualenv -eq 'n') {
+          ""; Return
+        }
+        "`nError: That was not a valid input.`n"; Return
+      }
 
     [string[]]$list = Get-Content -Path $virtualenvList
     "`nA list of your created python virtualenvs :`n"

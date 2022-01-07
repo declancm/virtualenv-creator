@@ -13,7 +13,6 @@ function Enable-Create {
     $directory = Get-Item $directoryString
   }
   $name = Read-Host -Prompt "Enter the name of the python virtual environment"
-  "The virtualenv is: $directory\$name"
   if(Test-Path -Path "$directory\$name" -PathType Container) {
     "`nError: A folder already exists in that directory with that name.`n"
   } else {
