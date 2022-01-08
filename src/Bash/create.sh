@@ -31,6 +31,7 @@ create() {
         virtualenv --python $selectedVersion $directory/$name >/dev/null
         if [ $? -eq 0 ]
         then
+            printf "\nThe virtualenv was created at '$directory/$name' for '$selectedVersion'.\n"
             if [ ! -e "$projectPath/data/Bash/virtualenvList" ]
             then
                 touch $projectPath/data/Bash/virtualenvList.txt
@@ -165,7 +166,6 @@ create() {
                 cd $OLDPWD
             fi
             printf "\nThe python virtualenv creation is complete.\n\n"
-            # printf "To manually activate (from within any directory): source $directory/$name/bin/activate\n\n"
         else
             printf "\nError: The python virtualenv could not be created.\n\n"
         fi

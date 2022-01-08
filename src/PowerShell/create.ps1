@@ -62,11 +62,7 @@ function Enable-Create {
     }
     $status = Invoke-Expression "virtualenv --python $python $directory\$name"
     if ($status) {
-      # if($Null -eq (Get-Content -Path $virtualenvList)) {
-      #   Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
-      # } else {
-      #   Add-Content -Path $virtualenvList -Value "`n$directory\$name" -Force
-      # }
+      # "`nThe virtualenv was created at '$directory\$name' for '$python'."
       if (-Not (Test-Path -Path $virtualenvList -PathType Leaf)) {
         New-Item -ItemType File -Path $virtualenvList | Out-Null
       }
@@ -146,9 +142,8 @@ function Enable-Create {
         "You did not enter a valid input. The python virtualenv will not be activated."
       }
       "`nThe python virtualenv creation is complete.`n"
-      # "The manual activation command:`n$directory\$name\Scripts\activate.ps1`n"
     } else {
-      "`nError: The python virtual environment could not be created.`n"
+      "`nError: The python virtualenv could not be created.`n"
     }
   }
 }
