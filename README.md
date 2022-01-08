@@ -13,6 +13,10 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 
 ![image](https://user-images.githubusercontent.com/90937622/148502458-d000b248-c1ae-4d99-ba90-03e6926a7fde.png)
 
+### Tree
+
+![image](https://user-images.githubusercontent.com/90937622/148659337-84100752-3bda-4be4-956b-6d82731ffd22.png)
+
 <!-- ## PowerShell Demo Video
 
 <https://user-images.githubusercontent.com/90937622/145666970-28a7a39f-7852-4f28-a398-cee993c00f5e.mp4> -->
