@@ -85,10 +85,9 @@ function Enable-Create {
             [string[]]$libraries = Get-Content -Path $virtualenvList
             $currentLine = $libraries[0]
             $n = 0
+            Invoke-Expression "$directory\$name\Scripts\activate.ps1"
+            "`nThe libaries.txt is being installed ...`n"
             while($Null -ne $currentLine) {
-              $currentLibrary = $libraries[$n]
-              Invoke-Expression "$directory\$name\Scripts\activate.ps1"
-              "`nThe libaries.txt is being installed ...`n"
               py -m pip -q install $library
               if ($?) {
                 "The pip library '$currentLibrary' was installed successfully."
