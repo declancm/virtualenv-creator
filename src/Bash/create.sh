@@ -43,52 +43,56 @@ create() {
             fi
             if [ -e "$projectPath/libraries.txt" ]
             then
-                # have a condition for if the file is empty
-                printf "\nA libraries.txt file was found. Do you want to install the contents into the virtualenv? (y/n): "
-                read installLibraries
-                if [ $installLibraries = 'y' ]
+                if [ ! -s "$projectPath/libraries.txt" ]
                 then
-                    libraries=()
-                    while IFS= read -r line; do
-                        libraries+=("$line")
-                    done < "$projectPath/libraries.txt"
-
-                    . $directory\/$name/bin/activate
-                    if [ $? -eq 0 ]
-                    then
-                        strippedName=$(basename $selectedVersion)
-                        if [ "${strippedName:6:1}" = "2" ]
-                        then
-                            pip='pip'
-                        else
-                            pip='pip3'
-                        fi
-                        printf "\nThe libraries.txt is being installed ...\n\n"
-                        currentLibrary=$libraries[1]
-                        n=1
-                        while [ -n "$currentLibrary" ]
-                        do
-                            $pip -q install $currentLibrary
-                            if [ $? -eq 0 ]
-                            then
-                                printf "The pip library '$currentLibrary' was installed successfully.\n"
-                            else
-                                printf "Error: The pip library '$currentLibrary' could not be installed.\n"
-                            fi
-                            n=$((n + 1))
-                            currentLibrary=$libraries[$n]
-                        done
-                        deactivate
-                        printf "\nThe libraries.txt installation is complete.\n"
-                    else
-                        printf "\nError: The virtualenv could not be activated.\n\n"
-                        return 1
-                    fi
-                elif [ $installLibraries = 'n' ]
-                then
-                    printf "The libraries.txt will not be installed.\n"
+                    printf "\nA libraries.txt file was found but it was empty.\n"
                 else
-                    printf "Error: You did not enter a valid input. The libraries.txt will not be installed.\n"
+                    printf "\nA libraries.txt file was found. Do you want to install the contents into the virtualenv? (y/n): "
+                    read installLibraries
+                    if [ $installLibraries = 'y' ]
+                    then
+                        libraries=()
+                        while IFS= read -r line; do
+                            libraries+=("$line")
+                        done < "$projectPath/libraries.txt"
+
+                        . $directory\/$name/bin/activate
+                        if [ $? -eq 0 ]
+                        then
+                            strippedName=$(basename $selectedVersion)
+                            if [ "${strippedName:6:1}" = "2" ]
+                            then
+                                pip='pip'
+                            else
+                                pip='pip3'
+                            fi
+                            printf "\nThe libraries.txt is being installed ...\n\n"
+                            currentLibrary=$libraries[1]
+                            n=1
+                            while [ -n "$currentLibrary" ]
+                            do
+                                $pip -q install $currentLibrary
+                                if [ $? -eq 0 ]
+                                then
+                                    printf "The pip library '$currentLibrary' was installed successfully.\n"
+                                else
+                                    printf "Error: The pip library '$currentLibrary' could not be installed.\n"
+                                fi
+                                n=$((n + 1))
+                                currentLibrary=$libraries[$n]
+                            done
+                            deactivate
+                            printf "\nThe libraries.txt installation is complete.\n"
+                        else
+                            printf "\nError: The virtualenv could not be activated.\n\n"
+                            return 1
+                        fi
+                    elif [ $installLibraries = 'n' ]
+                    then
+                        printf "The libraries.txt will not be installed.\n"
+                    else
+                        printf "Error: You did not enter a valid input. The libraries.txt will not be installed.\n"
+                    fi
                 fi
             fi
             while :

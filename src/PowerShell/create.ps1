@@ -79,7 +79,28 @@ function Enable-Create {
         # check condition that the file is empty
         $installLibraries = Read-Host -Prompt "`n A libraries.txt file was found. Do you want to install the contents into the virtualenv? (y/n)"
         if ($installLibries -eq 'y'){
-          #read file into array
+          if ($Null -eq (Get-Content -Path $virtualenvList)) {
+          }
+          else {
+            [string[]]$libraries = Get-Content -Path $virtualenvList
+            $currentLine = $libraries[0]
+            $n = 0
+            while($Null -ne $currentLine) {
+              $currentLibrary = $libraries[$n]
+              Invoke-Expression "$directory\$name\Scripts\activate.ps1"
+              "`nThe libaries.txt is being installed ...`n"
+              py -m pip -q install $library
+              if ($?) {
+                "The pip library '$currentLibrary' was installed successfully."
+              } else {
+                "Error: The pip library '$currentLibrary' could not be installed."
+              }
+              $n++
+              $currentLine = $libraries[$n]
+            }
+            Invoke-Expression 'deactivate'
+            "`nThe libraries.txt was installed."
+          }
         }
         elseif ($installLibraries -eq 'n') {
           "The libraries.txt will not be installed."
