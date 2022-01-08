@@ -62,11 +62,7 @@ function Enable-Create {
     }
     $status = Invoke-Expression "virtualenv --python $python $directory\$name"
     if ($status) {
-      # if($Null -eq (Get-Content -Path $virtualenvList)) {
-      #   Add-Content -Path $virtualenvList -Value "$directory\$name" -Force
-      # } else {
-      #   Add-Content -Path $virtualenvList -Value "`n$directory\$name" -Force
-      # }
+      # "`nThe virtualenv was created at '$directory\$name' for '$python'."
       if (-Not (Test-Path -Path $virtualenvList -PathType Leaf)) {
         New-Item -ItemType File -Path $virtualenvList | Out-Null
       }
@@ -77,15 +73,36 @@ function Enable-Create {
       $librariestxt = Join-Path $ProjectPath '\libraries.txt'
       if (Test-Path -Path $librariestxt -PathType Leaf) {
         # check condition that the file is empty
-        $installLibraries = Read-Host -Prompt "`n A libraries.txt file was found. Do you want to install the contents into the virtualenv? (y/n)"
-        if ($installLibries -eq 'y'){
-          #read file into array
-        }
-        elseif ($installLibraries -eq 'n') {
-          "The libraries.txt will not be installed."
-        }
-        else {
-          "`nError: You did not enter a valid input. The libraries.txt will not be installed."
+        if ($Null -eq (Get-Content -Path $librariestxt)) {
+        # if ([String]::IsNullOrWhiteSpace(Get-Content -Path $librariestxt))
+          "`nA libraries.txt file was found but it was empty."
+        } else {
+          $installLibraries = Read-Host -Prompt "`nA libraries.txt file was found. Do you want to install the contents into the virtualenv? (y/n)"
+          if ($installLibraries -eq 'y'){
+            [string[]]$libraries = Get-Content -Path $librariestxt
+            $currentLibrary = $libraries[0]
+            $n = 0
+            Invoke-Expression "$directory\$name\Scripts\activate.ps1"
+            "`nThe libaries.txt is being installed ...`n"
+            while($Null -ne $currentLibrary) {
+              py -m pip -q install $currentLibrary
+              if ($?) {
+                "The pip library '$currentLibrary' was installed successfully."
+              } else {
+                "Error: The pip library '$currentLibrary' could not be installed."
+              }
+              $n++
+              $currentLibrary = $libraries[$n]
+            }
+            Invoke-Expression 'deactivate'
+            "`nThe libraries.txt was installed."
+          }
+          elseif ($installLibraries -eq 'n') {
+            "The libraries.txt will not be installed."
+          }
+          else {
+            "`nError: You did not enter a valid input. The libraries.txt will not be installed."
+          }
         }
       }
       while($true) {
@@ -125,9 +142,8 @@ function Enable-Create {
         "You did not enter a valid input. The python virtualenv will not be activated."
       }
       "`nThe python virtualenv creation is complete.`n"
-      # "The manual activation command:`n$directory\$name\Scripts\activate.ps1`n"
     } else {
-      "`nError: The python virtual environment could not be created.`n"
+      "`nError: The python virtualenv could not be created.`n"
     }
   }
 }
