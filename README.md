@@ -82,11 +82,10 @@ _(in development)_
 ## Instructions
 
 - Enter `pyvenv` into your shell to activate the program and then follow the prompts.
-
 - A libraries.txt file can be created in the virtualenv/ directory which will be\
-read. List each library which will be installed on a separate line. The script\
-will automatically detect this file and ask if the libraries should be installed\
-to your new virtualenv.
+  read. List each library which will be installed on a separate line. The script\
+  will automatically detect this file and ask if the libraries should be installed\
+  to your new virtualenv.
 
 <!-- ### Bash Instructions (Linux and Mac)
 
@@ -95,8 +94,6 @@ to your new virtualenv.
 1. Type `pyvenv` into Bash to run the script and create a python virtualenv.
 
 **To manually run the script:**
-
-1. Enter the following command into Bash:
 
    ```bash
    source ~/virtualenv-creator/pyvenv.sh
