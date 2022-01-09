@@ -12,8 +12,8 @@ if($initialInput -eq 'c') {
   Return
 } elseif($initialInput -eq 'l') {
   . "$ProjectPath\src\PowerShell\list.ps1"
-  Return
   Open-List -ProjectPath $ProjectPath
+  Return
 } elseif($initialInput -eq '') {
   ""; Return
 } else {
