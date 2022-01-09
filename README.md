@@ -4,6 +4,8 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 
 - allows for fast virtualenv creation with easy python version selection, fast\
   library installation and optional automatic activation,
+- optional file can be created containing a list of pip libraries which can be\
+  installed when creating a new virtualenv,
 - gives a list of all the virtualenvs created with this tool which the user can\
   select from and either activate or delete.
 
