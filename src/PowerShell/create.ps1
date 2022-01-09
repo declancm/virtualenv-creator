@@ -83,7 +83,7 @@ function Enable-Create {
             $currentLibrary = $libraries[0]
             $n = 0
             Invoke-Expression "$directory\$name\Scripts\activate.ps1"
-            "`nThe libaries.txt is being installed ...`n"
+            "The libaries.txt is being installed ..."
             while($Null -ne $currentLibrary) {
               py -m pip -q install $currentLibrary
               if ($?) {
@@ -109,7 +109,7 @@ function Enable-Create {
         $library = Read-Host -Prompt "`nEnter the name of a pip library you would like to install (press Enter to skip)"
         if ($library -ne '') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
-          "`nThe pip library '$library' is being installed ...`n"
+          "The pip library '$library' is being installed ..."
           py -m pip -q install $library
           if ($?) {
             "The pip library '$library' was installed successfully."
