@@ -14,6 +14,7 @@ function Open-List {
         if ($createVirtualenv -eq 'y') {
           . "$ProjectPath\src\PowerShell\create.ps1"
           Enable-Create -ProjectPath $ProjectPath
+          Return
         }
         elseif ($createVirtualenv -eq 'n') {
           ""; Return
@@ -26,6 +27,7 @@ function Open-List {
       if ($createVirtualenv -eq 'y') {
         . "$ProjectPath\src\PowerShell\create.ps1"
         Enable-Create -ProjectPath $ProjectPath
+        Return
       }
       elseif ($createVirtualenv -eq 'n') {
         ""; Return
@@ -53,6 +55,7 @@ function Open-List {
         if ($createVirtualenv -eq 'y') {
           . "$ProjectPath\src\PowerShell\create.ps1"
           Enable-Create -ProjectPath $ProjectPath
+          Return
         }
         elseif ($createVirtualenv -eq 'n') {
           ""; Return
