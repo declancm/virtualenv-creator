@@ -24,7 +24,7 @@ function Enable-Create {
   }
   $name = Read-Host -Prompt "Enter the name of the python virtual environment"
   if(Test-Path -Path "$directory\$name" -PathType Container) {
-    "`nError: A folder already exists in that directory with that name.`n"
+    "`nFatal Error: A folder already exists in that directory with that name.`n"
   } else {
     # $where = Get-ChildItem -recursive -include "Python.exe"
 
@@ -109,12 +109,12 @@ function Enable-Create {
         $library = Read-Host -Prompt "`nEnter the name of a pip library you would like to install (press Enter to skip)"
         if ($library -ne '') {
           Invoke-Expression "$directory\$name\Scripts\activate.ps1"
-          "`nThe pip library is being installed ...`n"
+          "`nThe pip library '$library' is being installed ...`n"
           py -m pip -q install $library
           if ($?) {
             "The pip library '$library' was installed successfully."
           } else {
-            "`nError: The pip library '$library' could not be installed."
+            "Error: The pip library '$library' could not be installed."
           }
           Invoke-Expression 'deactivate'
         }
@@ -143,7 +143,7 @@ function Enable-Create {
       }
       "`nThe python virtualenv creation is complete.`n"
     } else {
-      "`nError: The python virtualenv could not be created.`n"
+      "`nFatal Error: The python virtualenv could not be created.`n"
     }
   }
 }
