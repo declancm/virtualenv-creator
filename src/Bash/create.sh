@@ -31,6 +31,7 @@ create() {
         virtualenv --python $selectedVersion $directory/$name >/dev/null
         if [ $? -eq 0 ]
         then
+            printf "\nThe virtualenv was created at '$directory/$name' for '$selectedVersion'.\n"
             if [ ! -e "$projectPath/data/Bash/virtualenvList" ]
             then
                 touch $projectPath/data/Bash/virtualenvList.txt

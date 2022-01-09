@@ -4,6 +4,8 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 
 - allows for fast virtualenv creation with easy python version selection, fast\
   library installation and optional automatic activation,
+- optional file can be created containing a list of pip libraries which can be\
+  installed when creating a new virtualenv,
 - gives a list of all the virtualenvs created with this tool which the user can\
   select from and either activate or delete.
 
@@ -79,9 +81,15 @@ _(in development)_
       PowerShell.exe /nologo -ExecutionPolicy Bypass $HOME\Documents\virtualenv-creator\install-WindowsPS.ps1
       ``` -->
 
-## Instructions
+## Usage
 
-- Enter `pyvenv` into your shell to activate the program and then follow the prompts.
+Enter `pyvenv` into your shell to either create a virtualenv or see a list of\
+created virtualenvs.
+
+A libraries.txt file can be created in the virtualenv/ directory which will be\
+read. List each library which will be installed on a separate line. The script\
+will automatically detect this file and ask if the libraries should be installed\
+to your new virtualenv.
 
 <!-- ### Bash Instructions (Linux and Mac)
 
@@ -90,8 +98,6 @@ _(in development)_
 1. Type `pyvenv` into Bash to run the script and create a python virtualenv.
 
 **To manually run the script:**
-
-1. Enter the following command into Bash:
 
    ```bash
    source ~/virtualenv-creator/pyvenv.sh
