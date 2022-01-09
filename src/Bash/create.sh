@@ -171,5 +171,5 @@ create() {
             return 1
         fi
     fi
-    return
+    return 0
 }

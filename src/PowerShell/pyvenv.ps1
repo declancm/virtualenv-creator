@@ -9,8 +9,10 @@ $initialInput = Read-Host -Prompt "`nEnter 'c' to create a python virtualenv or 
 if($initialInput -eq 'c') {
   . "$ProjectPath\src\PowerShell\create.ps1"
   Enable-Create -ProjectPath $ProjectPath
+  Return
 } elseif($initialInput -eq 'l') {
   . "$ProjectPath\src\PowerShell\list.ps1"
+  Return
   Open-List -ProjectPath $ProjectPath
 } elseif($initialInput -eq '') {
   ""; Return
