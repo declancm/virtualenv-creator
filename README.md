@@ -11,9 +11,13 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 
 ## Screenshots
 
-### Virtualenv Creation
+### Creating a Virtualenv (in Bash)
 
-![image](https://user-images.githubusercontent.com/90937622/148502458-d000b248-c1ae-4d99-ba90-03e6926a7fde.png)
+![image](https://user-images.githubusercontent.com/90937622/148670544-3174c733-fab6-4397-b2d6-5a1183b13cdb.png)
+
+### Using The List (in PowerShell)
+
+![image](https://user-images.githubusercontent.com/90937622/148670606-148cb501-2ec8-4fc5-bbb5-cf3d255216e1.png)
 
 <!-- ## PowerShell Demo Video
 
