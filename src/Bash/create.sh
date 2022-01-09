@@ -84,7 +84,7 @@ create() {
                             deactivate
                             printf "The libraries.txt installation is complete.\n"
                         else
-                            printf "\nError: The virtualenv could not be activated.\n\n"
+                            printf "\nFatal Error: The virtualenv could not be activated.\n\n"
                             return 1
                         fi
                     elif [ $installLibraries = 'n' ]
@@ -167,6 +167,7 @@ create() {
             printf "\nThe python virtualenv creation is complete.\n\n"
         else
             printf "\nFatal Error: The python virtualenv could not be created.\n\n"
+            return 1
         fi
     fi
     return
