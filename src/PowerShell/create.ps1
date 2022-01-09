@@ -142,6 +142,7 @@ function Enable-Create {
         "You did not enter a valid input. The python virtualenv will not be activated."
       }
       "`nThe python virtualenv creation is complete.`n"
+      Return
     } else {
       "`nFatal Error: The python virtualenv could not be created.`n"
     }
