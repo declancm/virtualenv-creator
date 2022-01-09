@@ -66,7 +66,7 @@ create() {
                             else
                                 pip='pip3'
                             fi
-                            printf "\nThe libraries.txt is being installed ...\n\n"
+                            printf "The libraries.txt is being installed ...\n"
                             currentLibrary=$libraries[1]
                             n=1
                             while [ -n "$currentLibrary" ]
@@ -82,7 +82,7 @@ create() {
                                 currentLibrary=$libraries[$n]
                             done
                             deactivate
-                            printf "\nThe libraries.txt installation is complete.\n"
+                            printf "The libraries.txt installation is complete.\n"
                         else
                             printf "\nError: The virtualenv could not be activated.\n\n"
                             return 1
@@ -111,7 +111,7 @@ create() {
                         else
                             pip='pip3'
                         fi
-                        printf "\nThe pip library is being installed ...\n\n"
+                        printf "The pip library '$library' is being installed ...\n"
                         $pip -q install $library
                         if [ $? -eq 0 ]
                         then
@@ -143,7 +143,7 @@ create() {
                 printf "\nError: You did not enter a valid input. The python virtualenv will not be ignored by git.\n"
                 rm -f $directory\/$name/.gitignore
             fi
-            printf "\nDo you want to activate the python venv? (y/n): "
+            printf "Do you want to activate the python venv? (y/n): "
             read activate
             if [ "$activate" = "y" ]
             then
@@ -165,7 +165,6 @@ create() {
                 cd $OLDPWD
             fi
             printf "\nThe python virtualenv creation is complete.\n\n"
-            # printf "To manually activate (from within any directory): source $directory/$name/bin/activate\n\n"
         else
             printf "\nError: The python virtualenv could not be created.\n\n"
         fi
