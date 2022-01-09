@@ -13,7 +13,7 @@ create() {
     read name
     if [ -d "$directory/$name" ]
     then
-        printf "\nError: A folder already exists in that directory with that name.\n\n"
+        printf "\nFatal Error: A folder already exists in that directory with that name.\n\n"
     else
         printf "\nThe installed python versions:\n\n"
         list=($(ls /usr/bin/python*[^config]))
@@ -140,7 +140,7 @@ create() {
                 printf "The python virtualenv will not be ignored by git.\n"
                 rm -f $directory\/$name/.gitignore
             else
-                printf "\nError: You did not enter a valid input. The python virtualenv will not be ignored by git.\n"
+                printf "Error: You did not enter a valid input. The python virtualenv will not be ignored by git.\n"
                 rm -f $directory\/$name/.gitignore
             fi
             printf "Do you want to activate the python venv? (y/n): "
@@ -152,7 +152,7 @@ create() {
             then
                 printf "The python virtualenv will not be activated.\n"
             else
-                printf "\nError: You did not enter a valid input. The python virtualenv will not be activated.\n"
+                printf "Error: You did not enter a valid input. The python virtualenv will not be activated.\n"
             fi
             if [ "$directory" = "." ]
             then
@@ -166,7 +166,7 @@ create() {
             fi
             printf "\nThe python virtualenv creation is complete.\n\n"
         else
-            printf "\nError: The python virtualenv could not be created.\n\n"
+            printf "\nFatal Error: The python virtualenv could not be created.\n\n"
         fi
     fi
     return
