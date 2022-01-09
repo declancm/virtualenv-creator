@@ -31,7 +31,7 @@ create() {
         virtualenv --python $selectedVersion $directory/$name >/dev/null
         if [ $? -eq 0 ]
         then
-            printf "\nThe virtualenv was created at '$directory/$name' for '$selectedVersion'.\n"
+            # printf "\nThe virtualenv was created at '$directory/$name' for '$selectedVersion'.\n"
             if [ ! -e "$projectPath/data/Bash/virtualenvList" ]
             then
                 touch $projectPath/data/Bash/virtualenvList.txt
@@ -144,7 +144,7 @@ create() {
                 printf "Error: You did not enter a valid input. The python virtualenv will not be ignored by git.\n"
                 rm -f $directory\/$name/.gitignore
             fi
-            printf "Do you want to activate the python venv? (y/n): "
+            printf "\nDo you want to activate the python venv? (y/n): "
             read activate
             if [ "$activate" = "y" ]
             then
