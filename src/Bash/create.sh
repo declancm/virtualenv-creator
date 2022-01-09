@@ -118,11 +118,11 @@ create() {
                         then
                             printf "The pip library '$library' was installed successfully.\n"
                         else
-                            printf "\nError: The pip library '$library' could not be installed.\n"
+                            printf "Error: The pip library '$library' could not be installed.\n"
                         fi
                         deactivate
                     else
-                        printf "\nError: The python virtualenv could not be activated.\n\n"
+                        printf "\nFatal Error: The python virtualenv could not be activated.\n\n"
                         return 1
                     fi
                 else
