@@ -90,10 +90,33 @@ _(in development)_
 Enter `pyvenv` into your shell to either create a virtualenv or see a list of\
 created virtualenvs.
 
-A libraries.txt file can be created in the virtualenv/ directory which will be\
-read. List each library which will be installed on a separate line. The script\
-will automatically detect this file and ask if the libraries should be installed\
-to your new virtualenv.
+A libraries.txt file can be created in the virtualenv directory (as shown in the\
+file tree), which will be read. List each library which will be installed on a\
+separate line. The script will automatically detect this file and ask if the\
+libraries should be installed to your new virtualenv.
+
+### Example File Tree
+
+<pre>
+.
+├── data/
+│   ├── Bash/
+│   │   └── virtualenvList.txt
+│   └── PowerShell/
+│       └── virtualenvList.txt
+├── src/
+│   ├── Bash/
+│   │   ├── create.sh
+│   │   ├── list.sh
+│   │   └── pyvenv.sh
+│   └── PowerShell/
+│       ├── create.ps1
+│       ├── list.ps1
+│       └── pyvenv.ps1
+├── install.py
+├── libraries.txt
+└── README.md
+</pre>
 
 <!-- ### Bash Instructions (Linux and Mac)
 
