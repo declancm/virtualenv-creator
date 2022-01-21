@@ -32,7 +32,7 @@ A fast and easy python virtual environment creator for Bash and PowerShell that:
 
 ### Mac OS
 
-_(in development)_
+_(in testing)_
 <!-- - Bash
 - ZSH -->
 
